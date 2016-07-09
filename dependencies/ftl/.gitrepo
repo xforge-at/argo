@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:beark/ftl.git
+	branch = master
+	commit = 707f51341581eb9031da7fb9326d074589f376df
+	parent = 0b178b8a2eaed452a6abcadb9087a388e3e42fc3
+	cmdver = 0.3.0

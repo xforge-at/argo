@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:mackyle/blocksruntime.git
+	branch = master
+	commit = b5c5274daf1e0e46ecc9ad8f6f69889bce0a0a5d
+	parent = 69d8a8692fccbfa12577d87ff2a1cb72c1e1f634
+	cmdver = 0.3.0

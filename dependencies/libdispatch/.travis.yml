@@ -1,0 +1,25 @@
+language: cpp
+matrix:
+    include:
+        - compiler: clang
+          env: DISPATCH_RUN_TESTS=1
+        - compiler: gcc
+cache: apt
+before_install:
+    - sudo apt-get update -qq
+install:
+    - sudo apt-get install -qq
+            libblocksruntime-dev
+            libkqueue-dev
+            libpthread-workqueue-dev
+            wbritish
+script:
+    - mkdir build && cd build
+    - ../configure --enable-test-suite
+    - make
+    - sudo make install
+    - |
+        if [[ "$DISPATCH_RUN_TESTS" -eq 1 ]]; then
+            ../testing/run_tests.py --permitted-failures=priority2,read2,apply --random-seed=$RANDOM testing
+        fi
+

@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:PSPDFKit-labs/libpthread_workqueue.git
+	branch = master
+	commit = d87650d3c8a31691645e437835eedaca15f3d20e
+	parent = bfbdbab7a7f74bdc05457df9007fda76276c4466
+	cmdver = 0.3.0

@@ -1,0 +1,6 @@
+framework module Pods_ArgoAppTests {
+  umbrella header "Pods-ArgoAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://chromium.googlesource.com/external/gyp.git
+	branch = 0bb67471bca068996e15b56738fa4824dfa19de0
+	commit = 0bb67471bca068996e15b56738fa4824dfa19de0
+	parent = acbcfed5907666c5ece75aca7e82dbe11099bbe6
+	cmdver = 0.3.0

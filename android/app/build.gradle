@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion = 23
+    buildToolsVersion  "23.0.2"
+
+    defaultConfig {
+        applicationId = "at.xforge.argo"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+//        ndk {
+//            moduleName "Argo_android"
+//        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Configures source set directory.
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        main.java.srcDirs += '../generated/java/'
+        main.jniLibs.srcDir "libs"
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
+
+task ndkBuild(type: Exec) {
+    File ndkDir = file("/usr/local/opt/android-ndk")
+
+    if (ndkDir == null) {
+        def gradle_project_root = project.rootProject.rootDir
+        throw new GradleException("NDK is not configured. Make sure there is a local.properties " +
+                "file with an ndk.dir entry in the directory ${gradle_project_root}, or set the " +
+                "ANDROID_NDK envrionment variable")
+    }
+
+    def ndkBuildExecutable = new File(ndkDir, 'ndk-build')
+    if (!ndkBuildExecutable.exists()) {
+        throw new GradleException("Could not find ndk-build. The configured NDK directory ${ndkDir} may not be correct.")
+    }
+
+    environment("GYP_CONFIGURATION", "Release")
+    commandLine(ndkBuildExecutable, "-j8")
+}
+
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}

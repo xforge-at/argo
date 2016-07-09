@@ -1,0 +1,26 @@
+BasedOnStyle: LLVM
+
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortBlocksOnASingleLine: false
+
+BinPackParameters: false
+
+BreakBeforeBraces: Attach
+
+ColumnLimit: 200
+TabWidth: 100
+IndentWidth: 4
+
+MaxEmptyLinesToKeep: 1
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: true
+ObjCBlockIndentWidth: 4
+PointerBindsToType: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpacesInContainerLiterals: true
+UseTab: ForIndentation
+
+IndentCaseLabels: true
+AlignTrailingComments: true

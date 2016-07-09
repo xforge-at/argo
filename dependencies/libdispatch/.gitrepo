@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:PSPDFKit-labs/libdispatch.git
+	branch = master
+	commit = 71197ddf37eec43ba4455ffadfba18c8d462ac6c
+	parent = f8fb4d22a150ba8ddfec25b13824c70e7256de70
+	cmdver = 0.3.0

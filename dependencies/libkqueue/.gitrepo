@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:PSPDFKit-labs/libkqueue.git
+	branch = master
+	commit = b2eafb2fca31fb9076c5c30632ac86baf649b23e
+	parent = 4517e5b7f84b702afe6498b8380bd586883c1cda
+	cmdver = 0.3.0
