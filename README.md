@@ -1,4 +1,4 @@
-# Argo
+# [Argo](https://en.wikipedia.org/wiki/Argo)
 
 This project was just generated from a crossplatform template and contains C++, iOS and Android components.
 
