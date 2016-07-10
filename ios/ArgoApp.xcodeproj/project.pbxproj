@@ -21,6 +21,7 @@
 		3269D09B1D24621500142DD9 /* libArgo_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3269D0981D24621500142DD9 /* libArgo_objc.a */; };
 		3269D09C1D24621500142DD9 /* libArgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3269D0991D24621500142DD9 /* libArgo.a */; };
 		3269D0A01D24642A00142DD9 /* BridgeHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3269D09F1D24642A00142DD9 /* BridgeHelper.mm */; };
+		4C5A864D1D328AFA0045CE55 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
 		F7A11BB17E8C5DD856D84879 /* Pods_ArgoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		3269D09F1D24642A00142DD9 /* BridgeHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BridgeHelper.mm; path = ArgoApp/BridgeHelper.mm; sourceTree = "<group>"; };
 		3DEBC53978A47332D975E450 /* Pods_ArgoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestor.swift; sourceTree = "<group>"; };
 		4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		734F3B411CA37DECEC3E832A /* Pods-ArgoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		84D965FB6575A1321483159A /* Pods-ArgoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppTests/Pods-ArgoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				321404481D242AB800142DD9 /* AppDelegate.swift */,
 				3214044A1D242AB800142DD9 /* ViewController.swift */,
+				4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */,
 			);
 			path = ArgoApp;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				3214044B1D242AB800142DD9 /* ViewController.swift in Sources */,
 				321404491D242AB800142DD9 /* AppDelegate.swift in Sources */,
 				320958251D246E5E00142DD9 /* R.generated.swift in Sources */,
+				4C5A864D1D328AFA0045CE55 /* HTTPRequestor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
