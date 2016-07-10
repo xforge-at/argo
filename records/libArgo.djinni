@@ -1,3 +1,5 @@
+@import "network.djinni"
+
 my_record = record {
     id : i32;
     texts : list<string>;
