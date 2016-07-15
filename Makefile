@@ -11,7 +11,7 @@ clean:
 	-rm GypAndroid.mk
 	-rm compile_commands.json
 
-ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ 
+ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ common.gypi
 	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ -Icommon.gypi
 

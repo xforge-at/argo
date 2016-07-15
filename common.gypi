@@ -48,6 +48,7 @@
       'CLANG_CXX_LIBRARY': 'libc++',
       'CLANG_ENABLE_OBJC_ARC': 'YES',
       'CLANG_ENABLE_CODE_COVERAGE': 'YES',
+      'CLANG_ENABLE_MODULES': 'YES',
       'ENABLE_BITCODE': 'NO',
       'PRODUCT_BUNDLE_IDENTIFIER': 'at.xforge.argoENTIFIER${BUNDLE_ID_SUFFIX}',
       'SDKROOT': 'iphoneos',
