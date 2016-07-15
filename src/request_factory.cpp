@@ -1,4 +1,5 @@
 #import "request_factory.hpp"
+#import "url.hpp"
 #import <algorithm>
 #import <cassert>
 

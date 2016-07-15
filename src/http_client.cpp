@@ -1,9 +1,10 @@
+#import "http_client.hpp"
 #import "generated/error.hpp"
 #import "generated/http_requestor.hpp"
 #import "generated/response.hpp"
-#import "http_client.hpp"
 
-HTTPClient::HTTPClient(nn_shared_ptr<HttpRequestor> &requestor) : requestor{requestor} {};
+HTTPClient::HTTPClient(nn_shared_ptr<HttpRequestor> &requestor) : requestor{requestor} {}
+HTTPClient::Callback::Callback(success_block_t success, error_block_t error) : success{success}, error{error} {}
 
 void HTTPClient::get(const string &url, success_block_t success, error_block_t error) { this->send(HTTPMethod::GET, url, success, error); }
 
