@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
@@ -6,7 +6,6 @@ android {
     buildToolsVersion  "23.0.2"
 
     defaultConfig {
-        applicationId = "at.xforge.argo"
         minSdkVersion 17
         targetSdkVersion 23
         versionCode 1
