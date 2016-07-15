@@ -1,7 +1,7 @@
 all: ios android
 
 clean:
-	-xcodebuild -workspace ios/ArgoApp.xcworkspace -scheme ArgoApp clean
+	-xcodebuild -workspace ios/ArgoLib.xcworkspace -scheme ArgoLib clean
 	-cd android/app && ndk-build clean
 	-rm -r **/generated/	
 	-rm -r **/build/
@@ -25,6 +25,6 @@ ios: ios/build/libArgo.xcodeproj ./ios/Podfile
 android: GypAndroid.mk
 
 compile_commands.json: ios
-	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoApp.xcworkspace -scheme ArgoApp -sdk iphonesimulator -jobs 8
+	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
 
 .PHONY: ios android clean all
