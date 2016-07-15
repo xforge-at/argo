@@ -9,7 +9,7 @@
 import XCTest
 @testable import ArgoApp
 
-class ArgoAppTests: XCTestCase {
+class ArgoLibTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
