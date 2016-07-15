@@ -30,10 +30,6 @@
 /* Begin PBXFileReference section */
 		045D01830D5FB5D64A719DE9 /* Pods_ArgoLibTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoLibTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7670E7ED5CC9C97BE2E83C /* Pods-ArgoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.release.xcconfig"; sourceTree = "<group>"; };
-		320958241D246E5E00142DD9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		3214044D1D242AB800142DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3214044F1D242AB800142DD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ArgoApp/Assets.xcassets; sourceTree = "<group>"; };
-		321404521D242AB800142DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		321404541D242AB800142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ArgoApp/Info.plist; sourceTree = "<group>"; };
 		321404591D242AB800142DD9 /* ArgoLib.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgoLib.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3214045D1D242AB800142DD9 /* ArgoLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgoLibTests.swift; sourceTree = "<group>"; };
@@ -60,7 +56,7 @@
 		3DEBC53978A47332D975E450 /* Pods_ArgoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D3013E8999ED4D007DD084 /* Pods-ArgoLibTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoLibTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = ArgoApp/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
+		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = Argo/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
 		4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E790301219E2C2A56A0FAC4 /* Pods-Argo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Argo/Pods-Argo.release.xcconfig"; sourceTree = "<group>"; };
 		734F3B411CA37DECEC3E832A /* Pods-ArgoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,13 +142,9 @@
 		3269D0601D242C0A00142DD9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				320958241D246E5E00142DD9 /* R.generated.swift */,
 				3269D0971D24621500142DD9 /* libdjinni_objc.a */,
 				3269D0981D24621500142DD9 /* libArgo_objc.a */,
 				3269D0991D24621500142DD9 /* libArgo.a */,
-				3214044C1D242AB800142DD9 /* Main.storyboard */,
-				3214044F1D242AB800142DD9 /* Assets.xcassets */,
-				321404511D242AB800142DD9 /* LaunchScreen.storyboard */,
 				321404541D242AB800142DD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -416,27 +408,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3214044C1D242AB800142DD9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3214044D1D242AB800142DD9 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ArgoApp;
-			sourceTree = "<group>";
-		};
-		321404511D242AB800142DD9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				321404521D242AB800142DD9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = ArgoApp;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3214046B1D242AB800142DD9 /* Debug */ = {
