@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/manu/Workspace/argo/ios/Argo.xcodeproj">
+      location = "group:/Users/manu/Workspace/argo/ios/ArgoLib.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:build/libArgo.xcodeproj">
