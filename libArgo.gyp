@@ -61,7 +61,8 @@
 			'type': 'static_library',
 			'dependencies': [
 			    'dependencies/djinni/support-lib/support_lib.gyp:djinni_jni',
-			     'libArgo',
+			    'dependencies/json11.gyp:json11',
+			    'libArgo',
 			],
 			'cflags+' : [ '-DTARGET_OS_ANDROID=1' ],
 			'sources': [
