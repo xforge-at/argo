@@ -24,10 +24,15 @@
 		32ED5A3D1D32A11400142DD9 /* libArgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A3A1D32A11400142DD9 /* libArgo.a */; };
 		32ED5A3E1D32A11400142DD9 /* libdjinni_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A3B1D32A11400142DD9 /* libdjinni_objc.a */; };
 		32ED5A401D32A1B800142DD9 /* RecordGetterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ED5A3F1D32A1B800142DD9 /* RecordGetterDelegate.swift */; };
-		4C5A864D1D328AFA0045CE55 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
 		32ED5A4C1D32A91D00142DD9 /* XFMyRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A491D32A91D00142DD9 /* XFMyRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32ED5A4D1D32A91D00142DD9 /* XFMyRecordGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32ED5A4E1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32FAE7A51D38C4F700142DD9 /* XFResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A11D38C4F700142DD9 /* XFResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32FAE7A61D38C4F700142DD9 /* XFRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A21D38C4F700142DD9 /* XFRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32FAE7A71D38C4F700142DD9 /* XFHttpRequestor.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32FAE7A81D38C4F700142DD9 /* XFError.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A41D38C4F700142DD9 /* XFError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
+		32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7A11BB17E8C5DD856D84879 /* Pods_ArgoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,9 +104,14 @@
 		32ED5A491D32A91D00142DD9 /* XFMyRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecord.h; path = generated/XFMyRecord.h; sourceTree = SOURCE_ROOT; };
 		32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecordGetter.h; path = generated/XFMyRecordGetter.h; sourceTree = SOURCE_ROOT; };
 		32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecordGetterDelegate.h; path = generated/XFMyRecordGetterDelegate.h; sourceTree = SOURCE_ROOT; };
+		32FAE7A11D38C4F700142DD9 /* XFResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFResponse.h; path = generated/XFResponse.h; sourceTree = SOURCE_ROOT; };
+		32FAE7A21D38C4F700142DD9 /* XFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFRequest.h; path = generated/XFRequest.h; sourceTree = SOURCE_ROOT; };
+		32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFHttpRequestor.h; path = generated/XFHttpRequestor.h; sourceTree = SOURCE_ROOT; };
+		32FAE7A41D38C4F700142DD9 /* XFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFError.h; path = generated/XFError.h; sourceTree = SOURCE_ROOT; };
+		32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFHttpRequestorCallback.h; path = generated/XFHttpRequestorCallback.h; sourceTree = SOURCE_ROOT; };
 		3DEBC53978A47332D975E450 /* Pods_ArgoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestor.swift; sourceTree = "<group>"; };
+		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = ArgoApp/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
 		4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		734F3B411CA37DECEC3E832A /* Pods-ArgoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		84D965FB6575A1321483159A /* Pods-ArgoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppTests/Pods-ArgoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,7 +202,6 @@
 			children = (
 				321404481D242AB800142DD9 /* AppDelegate.swift */,
 				3214044A1D242AB800142DD9 /* ViewController.swift */,
-				4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */,
 			);
 			path = ArgoApp;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 				32ED5A481D32A8F000142DD9 /* Header */,
 				32ED5A2F1D32A08300142DD9 /* Info.plist */,
 				32ED5A3F1D32A1B800142DD9 /* RecordGetterDelegate.swift */,
+				4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */,
 			);
 			path = Argo;
 			sourceTree = "<group>";
@@ -246,6 +256,11 @@
 				32ED5A491D32A91D00142DD9 /* XFMyRecord.h */,
 				32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */,
 				32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */,
+				32FAE7A11D38C4F700142DD9 /* XFResponse.h */,
+				32FAE7A21D38C4F700142DD9 /* XFRequest.h */,
+				32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */,
+				32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */,
+				32FAE7A41D38C4F700142DD9 /* XFError.h */,
 				32ED5A2D1D32A08300142DD9 /* Argo.h */,
 				32ED5A461D32A62900142DD9 /* module.modulemap */,
 			);
@@ -272,10 +287,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FAE7A61D38C4F700142DD9 /* XFRequest.h in Headers */,
 				32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */,
+				32FAE7A71D38C4F700142DD9 /* XFHttpRequestor.h in Headers */,
 				32ED5A4C1D32A91D00142DD9 /* XFMyRecord.h in Headers */,
 				32ED5A4D1D32A91D00142DD9 /* XFMyRecordGetter.h in Headers */,
+				32FAE7A51D38C4F700142DD9 /* XFResponse.h in Headers */,
 				32ED5A4E1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h in Headers */,
+				32FAE7A81D38C4F700142DD9 /* XFError.h in Headers */,
+				32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +608,6 @@
 				3214044B1D242AB800142DD9 /* ViewController.swift in Sources */,
 				321404491D242AB800142DD9 /* AppDelegate.swift in Sources */,
 				320958251D246E5E00142DD9 /* R.generated.swift in Sources */,
-				4C5A864D1D328AFA0045CE55 /* HTTPRequestor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */,
 				32ED5A401D32A1B800142DD9 /* RecordGetterDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -855,6 +875,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "$(SRCROOT)/Argo/module.modulemap";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = at.xforge.Argo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -880,6 +901,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "$(SRCROOT)/Argo/module.modulemap";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = at.xforge.Argo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

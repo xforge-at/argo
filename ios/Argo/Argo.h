@@ -11,6 +11,11 @@
 #import "XFMyRecord.h"
 #import "XFMyRecordGetter.h"
 #import "XFMyRecordGetterDelegate.h"
+#import "XFResponse.h"
+#import "XFRequest.h"
+#import "XFHttpRequestor.h"
+#import "XFHttpRequestorCallback.h"
+#import "XFError.h"
 
 //#import "Argo-Swift.h"
 

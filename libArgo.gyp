@@ -4,7 +4,8 @@
 	    'target_name': 'libArgo',
 		'type': 'static_library',
 		'dependencies': [
-		    'dependencies/djinni/support-lib/support_lib.gyp:djinni_objc'
+		    'dependencies/djinni/support-lib/support_lib.gyp:djinni_objc',
+		    'dependencies/json11.gyp:json11'
 		],
 		'conditions': [ 
 		    ['OS=="ios"', {'ldflags' : ['-Idispatch']}],
