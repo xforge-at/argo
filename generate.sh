@@ -8,6 +8,7 @@ ANDROID_OUT=android/generated/java/djinni/
 CPP_OUT=src/generated/
 JNI_OUT=android/generated/jni/
 OBJC_OUT=ios/generated/
+YAML_OUT=.
 
 ./dependencies/djinni/src/run-assume-built \
    --java-out $ANDROID_OUT \
@@ -30,4 +31,7 @@ OBJC_OUT=ios/generated/
    --objcpp-out $OBJC_OUT \
    --objcpp-include-cpp-prefix "generated/" \
    \
-   --idl records/libArgo.djinni
+   --yaml-out $YAML_OUT \
+   --yaml-out-file "Argo.yaml" \
+   \
+   --idl records/libArgo.djinni 
