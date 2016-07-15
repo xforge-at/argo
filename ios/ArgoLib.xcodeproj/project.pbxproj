@@ -13,10 +13,6 @@
 		32ED5A3C1D32A11400142DD9 /* libArgo_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A391D32A11400142DD9 /* libArgo_objc.a */; };
 		32ED5A3D1D32A11400142DD9 /* libArgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A3A1D32A11400142DD9 /* libArgo.a */; };
 		32ED5A3E1D32A11400142DD9 /* libdjinni_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A3B1D32A11400142DD9 /* libdjinni_objc.a */; };
-		32ED5A401D32A1B800142DD9 /* RecordGetterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ED5A3F1D32A1B800142DD9 /* RecordGetterDelegate.swift */; };
-		32ED5A4C1D32A91D00142DD9 /* XFMyRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A491D32A91D00142DD9 /* XFMyRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32ED5A4D1D32A91D00142DD9 /* XFMyRecordGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32ED5A4E1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7A51D38C4F700142DD9 /* XFResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A11D38C4F700142DD9 /* XFResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7A61D38C4F700142DD9 /* XFRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A21D38C4F700142DD9 /* XFRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7A71D38C4F700142DD9 /* XFHttpRequestor.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,11 +39,7 @@
 		32ED5A391D32A11400142DD9 /* libArgo_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArgo_objc.a; path = "../../../Library/Developer/Xcode/DerivedData/ArgoApp-cllrmclybpnmqibcbpgrsbqlobmy/Build/Products/Debug-iphonesimulator/libArgo_objc.a"; sourceTree = "<group>"; };
 		32ED5A3A1D32A11400142DD9 /* libArgo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArgo.a; path = "../../../Library/Developer/Xcode/DerivedData/ArgoApp-cllrmclybpnmqibcbpgrsbqlobmy/Build/Products/Debug-iphonesimulator/libArgo.a"; sourceTree = "<group>"; };
 		32ED5A3B1D32A11400142DD9 /* libdjinni_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdjinni_objc.a; path = "../../../Library/Developer/Xcode/DerivedData/ArgoApp-cllrmclybpnmqibcbpgrsbqlobmy/Build/Products/Debug-iphonesimulator/libdjinni_objc.a"; sourceTree = "<group>"; };
-		32ED5A3F1D32A1B800142DD9 /* RecordGetterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordGetterDelegate.swift; sourceTree = "<group>"; };
 		32ED5A461D32A62900142DD9 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		32ED5A491D32A91D00142DD9 /* XFMyRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecord.h; path = generated/XFMyRecord.h; sourceTree = SOURCE_ROOT; };
-		32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecordGetter.h; path = generated/XFMyRecordGetter.h; sourceTree = SOURCE_ROOT; };
-		32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFMyRecordGetterDelegate.h; path = generated/XFMyRecordGetterDelegate.h; sourceTree = SOURCE_ROOT; };
 		32FAE7A11D38C4F700142DD9 /* XFResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFResponse.h; path = generated/XFResponse.h; sourceTree = SOURCE_ROOT; };
 		32FAE7A21D38C4F700142DD9 /* XFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFRequest.h; path = generated/XFRequest.h; sourceTree = SOURCE_ROOT; };
 		32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFHttpRequestor.h; path = generated/XFHttpRequestor.h; sourceTree = SOURCE_ROOT; };
@@ -155,7 +147,6 @@
 			children = (
 				32ED5A481D32A8F000142DD9 /* Header */,
 				32ED5A2F1D32A08300142DD9 /* Info.plist */,
-				32ED5A3F1D32A1B800142DD9 /* RecordGetterDelegate.swift */,
 				4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */,
 			);
 			path = Argo;
@@ -164,9 +155,6 @@
 		32ED5A481D32A8F000142DD9 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				32ED5A491D32A91D00142DD9 /* XFMyRecord.h */,
-				32ED5A4A1D32A91D00142DD9 /* XFMyRecordGetter.h */,
-				32ED5A4B1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h */,
 				32FAE7A11D38C4F700142DD9 /* XFResponse.h */,
 				32FAE7A21D38C4F700142DD9 /* XFRequest.h */,
 				32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */,
@@ -205,10 +193,7 @@
 				32FAE7A61D38C4F700142DD9 /* XFRequest.h in Headers */,
 				32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */,
 				32FAE7A71D38C4F700142DD9 /* XFHttpRequestor.h in Headers */,
-				32ED5A4C1D32A91D00142DD9 /* XFMyRecord.h in Headers */,
-				32ED5A4D1D32A91D00142DD9 /* XFMyRecordGetter.h in Headers */,
 				32FAE7A51D38C4F700142DD9 /* XFResponse.h in Headers */,
-				32ED5A4E1D32A91D00142DD9 /* XFMyRecordGetterDelegate.h in Headers */,
 				32FAE7A81D38C4F700142DD9 /* XFError.h in Headers */,
 				32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */,
 			);
@@ -403,7 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */,
-				32ED5A401D32A1B800142DD9 /* RecordGetterDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

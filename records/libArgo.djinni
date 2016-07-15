@@ -1,23 +1,5 @@
 @import "network.djinni"
 
-my_record = record {
-    id : i32;
-    texts : list<string>;
-    optional_test : optional<string>;
-}
-
-my_record_getter_delegate = interface +j +o {
-    should_get_record() : bool;
-    receive_record(record : my_record);
-}
-
-my_record_getter = interface +c {
-    get_async_record(prefix : string);
-    set_delegate(delegate : my_record_getter_delegate);
-
-    static create() : my_record_getter;
-}
-
 main_thread_dispatch_queue_helper = interface +c {
     # Wait until queue becomes readable
     # True if there is an item in the queue, false otherwise

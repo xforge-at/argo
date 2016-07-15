@@ -2,9 +2,6 @@ framework module Argo {
     umbrella header "Argo.h"
     
     // Load a C header to be used in Swift
-    header "XFMyRecordGetterDelegate.h"
-    header "XFMyRecord.h"
-    header "XFMyRecordGetter.h"
     header "XFResponse.h"
     header "XFRequest.h"
     header "XFHTTPRequestor.h"
