@@ -1,6 +1,0 @@
-framework module Pods_ArgoApp {
-  umbrella header "Pods-ArgoApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
