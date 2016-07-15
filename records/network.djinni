@@ -1,0 +1,26 @@
+request = record {
+    method : string;
+    url : string;
+    header : optional<map<string,string>>;
+    body : optional<binary>;
+}
+
+response = record {
+    request : request;
+    header : map<string,string>;
+    body : optional<binary>;
+}
+
+error = record {
+    # add more fields
+    message : string;
+}
+
+http_requestor = interface +j +o {
+    execute_request(request : request, callback : http_requestor_callback);
+}
+
+http_requestor_callback = interface +c {
+    receive_response(response : response);
+    receive_error(error : error);
+}
