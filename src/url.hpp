@@ -16,8 +16,8 @@ std::string url_encode(const std::string &value) {
     escaped.fill('0');
     escaped << std::hex;
 
-    for (std::string::const_iterator i = value.begin(), n = value.end(); i != n; ++i) {
-        std::string::value_type c = (*i);
+    for (auto i = value.cbegin(), n = value.cend(); i != n; ++i) {
+        auto c = (*i);
 
         // Keep alphanumeric and other accepted characters intact
         if (std::isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
@@ -36,12 +36,12 @@ std::string url_encode(const std::string &value) {
 
 char from_hex(char ch) { return std::isdigit(ch) ? ch - '0' : std::tolower(ch) - 'a' + 10; }
 
-std::string url_decode(std::string text) {
+std::string url_decode(const std::string &text) {
     char h;
     std::ostringstream escaped;
     escaped.fill('0');
 
-    for (auto i = text.begin(), n = text.end(); i != n; ++i) {
+    for (auto i = text.cbegin(), n = text.cend(); i != n; ++i) {
         std::string::value_type c = (*i);
 
         if (c == '%') {

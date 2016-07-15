@@ -37,7 +37,7 @@ string parametersToString(unordered_map<string, string> parameters) {
 
 vector<uint8_t> stringToBinary(string &str) { return vector<uint8_t>{str.begin(), str.end()}; }
 
-Request buildRequestWithContentType(HTTPMethod method, string url, optional<string> body, string contentType, optional<unordered_map<string, string>> header) {
+Request buildRequestWithContentType(HTTPMethod method, const string &url, optional<string> body, const string &contentType, optional<unordered_map<string, string>> header) {
     let methodString = methodToString(method);
 
     let contentTypeHeader = std::make_pair("Content-Type", contentType);
@@ -54,7 +54,7 @@ Request buildRequestWithContentType(HTTPMethod method, string url, optional<stri
     return Request{methodString, url, make_optional(headerMap), bodyData};
 }
 
-Request RequestFactory::buildRequest(HTTPMethod method, string url, optional<unordered_map<string, string>> parameters, optional<unordered_map<string, string>> header) {
+Request RequestFactory::buildRequest(HTTPMethod method, const string &url, optional<unordered_map<string, string>> parameters, optional<unordered_map<string, string>> header) {
     let paramString = parameters ? parametersToString(*parameters) : "";
     var urlString = string{url};
     var bodyString = string{};
@@ -76,14 +76,14 @@ Request RequestFactory::buildRequest(HTTPMethod method, string url, optional<uno
     return buildRequestWithContentType(method, urlString, bodyString.empty() ? nullopt : make_optional(bodyString), "application/x-www-form-urlencoded", header);
 }
 
-Request RequestFactory::buildRequest(HTTPMethod method, string url, optional<unordered_map<string, string>> parameters) {
+Request RequestFactory::buildRequest(HTTPMethod method, const string &url, optional<unordered_map<string, string>> parameters) {
     // nop
     return RequestFactory::buildRequest(method, url, nullopt, nullopt);
 }
 
-Request RequestFactory::buildRequest(HTTPMethod method, string url) { return RequestFactory::buildRequest(method, url, nullopt); }
+Request RequestFactory::buildRequest(HTTPMethod method, const string &url) { return RequestFactory::buildRequest(method, url, nullopt); }
 
-Request RequestFactory::buildRequestWithJSONBody(HTTPMethod method, string url, Json parameters, optional<unordered_map<string, string>> header) {
+Request RequestFactory::buildRequestWithJSONBody(HTTPMethod method, const string &url, Json &parameters, optional<unordered_map<string, string>> header) {
     switch (method) {
         case POST:
         case PATCH:
@@ -98,4 +98,4 @@ Request RequestFactory::buildRequestWithJSONBody(HTTPMethod method, string url, 
     return buildRequestWithContentType(method, url, make_optional(parameters.dump()), "application/json", header);
 }
 
-Request RequestFactory::buildRequestWithJSONBody(HTTPMethod method, string url, Json parameters) { return RequestFactory::buildRequestWithJSONBody(method, url, parameters, nullopt); }
+Request RequestFactory::buildRequestWithJSONBody(HTTPMethod method, const string &url, Json &parameters) { return RequestFactory::buildRequestWithJSONBody(method, url, parameters, nullopt); }

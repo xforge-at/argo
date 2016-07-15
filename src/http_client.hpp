@@ -17,7 +17,7 @@ typedef function<void(Error)> error_block_t;
 class HTTPClient {
   public:
     virtual ~HTTPClient() {}
-    HTTPClient(nn_shared_ptr<HttpRequestor> &requestor);
+    HTTPClient(nn_shared_ptr<HttpRequestor> requestor);
 
     void get(const string &url, success_block_t success, error_block_t error);
 
@@ -29,8 +29,8 @@ class HTTPClient {
     class Callback : public Argo::HttpRequestorCallback {
       public:
         Callback(success_block_t success, error_block_t error);
-        virtual void receive_response(const Response &response);
-        virtual void receive_error(const Error &error);
+        void receive_response(const Response &response) override;
+        void receive_error(const Error &error) override;
 
       private:
         success_block_t success;
