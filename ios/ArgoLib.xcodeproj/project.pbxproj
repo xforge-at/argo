@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A68AF781F39F4DC9E73FFFC /* Pods_ArgoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */; };
 		3214045E1D242AB800142DD9 /* ArgoLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214045D1D242AB800142DD9 /* ArgoLibTests.swift */; };
 		32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A2D1D32A08300142DD9 /* Argo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32ED5A3C1D32A11400142DD9 /* libArgo_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A391D32A11400142DD9 /* libArgo_objc.a */; };
@@ -19,13 +18,76 @@
 		32FAE7A81D38C4F700142DD9 /* XFError.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7A41D38C4F700142DD9 /* XFError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
 		32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7818440016B07CED174A411E /* Pods_ArgoLibTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045D01830D5FB5D64A719DE9 /* Pods_ArgoLibTests.framework */; };
-		A33B3D847DA04DF6E9AAA236 /* Pods_Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDABF0194025517EB028CFF /* Pods_Argo.framework */; };
+		32FAE7DC1D393B6800142DD9 /* libjson11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FAE7D31D393B5300142DD9 /* libjson11.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		32FAE7B61D393B3A00142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC658C749F521B13A5BDCBBC;
+			remoteInfo = djinni_jni;
+		};
+		32FAE7B81D393B3A00142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0C99AA4F95316AA552A79C55;
+			remoteInfo = djinni_objc;
+		};
+		32FAE7CA1D393B4400142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F946398AFCB6BFC9060DACE1;
+			remoteInfo = libArgo;
+		};
+		32FAE7CC1D393B4400142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7E53CB60EEE7F0E502A039B;
+			remoteInfo = libArgo_objc;
+		};
+		32FAE7D21D393B5300142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FBDF0630DFB409BA3B3C55F4;
+			remoteInfo = json11;
+		};
+		32FAE7D41D393B6000142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 628B5EEE1406717033D202E7;
+			remoteInfo = json11;
+		};
+		32FAE7D61D393B6000142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53863295E8DC3026435CCCB5;
+			remoteInfo = libArgo;
+		};
+		32FAE7D81D393B6000142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 99ECAEFE5E1A763DFE0C17C8;
+			remoteInfo = libArgo_objc;
+		};
+		32FAE7DA1D393B6000142DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D8395115E9C30FE491C2AC03;
+			remoteInfo = djinni_objc;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		045D01830D5FB5D64A719DE9 /* Pods_ArgoLibTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoLibTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E7670E7ED5CC9C97BE2E83C /* Pods-ArgoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.release.xcconfig"; sourceTree = "<group>"; };
 		321404541D242AB800142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ArgoApp/Info.plist; sourceTree = "<group>"; };
 		321404591D242AB800142DD9 /* ArgoLib.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgoLib.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3214045D1D242AB800142DD9 /* ArgoLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgoLibTests.swift; sourceTree = "<group>"; };
@@ -45,20 +107,10 @@
 		32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFHttpRequestor.h; path = generated/XFHttpRequestor.h; sourceTree = SOURCE_ROOT; };
 		32FAE7A41D38C4F700142DD9 /* XFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFError.h; path = generated/XFError.h; sourceTree = SOURCE_ROOT; };
 		32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFHttpRequestorCallback.h; path = generated/XFHttpRequestorCallback.h; sourceTree = SOURCE_ROOT; };
-		3DEBC53978A47332D975E450 /* Pods_ArgoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47D3013E8999ED4D007DD084 /* Pods-ArgoLibTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoLibTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests.debug.xcconfig"; sourceTree = "<group>"; };
+		32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = support_lib.xcodeproj; path = "build/dependencies/djinni/support-lib/support_lib.xcodeproj"; sourceTree = "<group>"; };
+		32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libArgo.xcodeproj; path = build/libArgo.xcodeproj; sourceTree = "<group>"; };
+		32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json11.xcodeproj; path = build/dependencies/json11.xcodeproj; sourceTree = "<group>"; };
 		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = Argo/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
-		4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E790301219E2C2A56A0FAC4 /* Pods-Argo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Argo/Pods-Argo.release.xcconfig"; sourceTree = "<group>"; };
-		734F3B411CA37DECEC3E832A /* Pods-ArgoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoApp/Pods-ArgoApp.debug.xcconfig"; sourceTree = "<group>"; };
-		84D965FB6575A1321483159A /* Pods-ArgoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppTests/Pods-ArgoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B888554D8F8D75F0AC46B02E /* Pods-ArgoLibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoLibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests.release.xcconfig"; sourceTree = "<group>"; };
-		C91B6C14E8061C6A0C772080 /* Pods-Argo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Argo/Pods-Argo.debug.xcconfig"; sourceTree = "<group>"; };
-		CCDABF0194025517EB028CFF /* Pods_Argo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF696C8A8CE89C2FFF658520 /* Pods-ArgoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppTests/Pods-ArgoAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		EC958E95D9C4101F30AA4C40 /* Pods-ArgoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppUITests/Pods-ArgoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EE9EB78CF9599173E87FB5F6 /* Pods-ArgoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgoAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArgoAppUITests/Pods-ArgoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A68AF781F39F4DC9E73FFFC /* Pods_ArgoAppTests.framework in Frameworks */,
-				7818440016B07CED174A411E /* Pods_ArgoLibTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +125,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FAE7DC1D393B6800142DD9 /* libjson11.a in Frameworks */,
 				32ED5A3C1D32A11400142DD9 /* libArgo_objc.a in Frameworks */,
 				32ED5A3D1D32A11400142DD9 /* libArgo.a in Frameworks */,
 				32ED5A3E1D32A11400142DD9 /* libdjinni_objc.a in Frameworks */,
-				A33B3D847DA04DF6E9AAA236 /* Pods_Argo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,14 +138,12 @@
 		17FC35B2447A3615D8EEEADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */,
+				32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */,
+				32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */,
 				32ED5A391D32A11400142DD9 /* libArgo_objc.a */,
 				32ED5A3A1D32A11400142DD9 /* libArgo.a */,
 				32ED5A3B1D32A11400142DD9 /* libdjinni_objc.a */,
-				4D820CC4CF083E465010004C /* Pods_ArgoApp.framework */,
-				44B2F6B3F54BC1380309B18C /* Pods_ArgoAppTests.framework */,
-				3DEBC53978A47332D975E450 /* Pods_ArgoAppUITests.framework */,
-				CCDABF0194025517EB028CFF /* Pods_Argo.framework */,
-				045D01830D5FB5D64A719DE9 /* Pods_ArgoLibTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,7 +155,6 @@
 				3214045C1D242AB800142DD9 /* ArgoLibTests */,
 				3269D0601D242C0A00142DD9 /* Supporting Files */,
 				321404461D242AB800142DD9 /* Products */,
-				D92D7A898445A5A31D89540B /* Pods */,
 				17FC35B2447A3615D8EEEADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -166,21 +213,30 @@
 			name = Header;
 			sourceTree = "<group>";
 		};
-		D92D7A898445A5A31D89540B /* Pods */ = {
+		32FAE7B11D393B3A00142DD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				734F3B411CA37DECEC3E832A /* Pods-ArgoApp.debug.xcconfig */,
-				1E7670E7ED5CC9C97BE2E83C /* Pods-ArgoApp.release.xcconfig */,
-				84D965FB6575A1321483159A /* Pods-ArgoAppTests.debug.xcconfig */,
-				DF696C8A8CE89C2FFF658520 /* Pods-ArgoAppTests.release.xcconfig */,
-				EE9EB78CF9599173E87FB5F6 /* Pods-ArgoAppUITests.debug.xcconfig */,
-				EC958E95D9C4101F30AA4C40 /* Pods-ArgoAppUITests.release.xcconfig */,
-				C91B6C14E8061C6A0C772080 /* Pods-Argo.debug.xcconfig */,
-				6E790301219E2C2A56A0FAC4 /* Pods-Argo.release.xcconfig */,
-				47D3013E8999ED4D007DD084 /* Pods-ArgoLibTests.debug.xcconfig */,
-				B888554D8F8D75F0AC46B02E /* Pods-ArgoLibTests.release.xcconfig */,
+				32FAE7B71D393B3A00142DD9 /* libdjinni_jni.a */,
+				32FAE7B91D393B3A00142DD9 /* libdjinni_objc.a */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32FAE7C51D393B4400142DD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32FAE7CB1D393B4400142DD9 /* libArgo.a */,
+				32FAE7CD1D393B4400142DD9 /* libArgo_objc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32FAE7CF1D393B5200142DD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32FAE7D31D393B5300142DD9 /* libjson11.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,16 +282,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32ED5A361D32A08300142DD9 /* Build configuration list for PBXNativeTarget "Argo" */;
 			buildPhases = (
-				B5E527B73DD6DA6AA1A8A2C3 /* [CP] Check Pods Manifest.lock */,
 				32ED5A261D32A08300142DD9 /* Sources */,
 				32ED5A271D32A08300142DD9 /* Frameworks */,
 				32ED5A281D32A08300142DD9 /* Headers */,
 				32ED5A291D32A08300142DD9 /* Resources */,
-				A6DB7077FC917E2F02292E74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				32FAE7D51D393B6000142DD9 /* PBXTargetDependency */,
+				32FAE7D71D393B6000142DD9 /* PBXTargetDependency */,
+				32FAE7D91D393B6000142DD9 /* PBXTargetDependency */,
+				32FAE7DB1D393B6000142DD9 /* PBXTargetDependency */,
 			);
 			name = Argo;
 			productName = Argo;
@@ -271,6 +329,20 @@
 			mainGroup = 3214043C1D242AB800142DD9;
 			productRefGroup = 321404461D242AB800142DD9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 32FAE7CF1D393B5200142DD9 /* Products */;
+					ProjectRef = 32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */;
+				},
+				{
+					ProductGroup = 32FAE7C51D393B4400142DD9 /* Products */;
+					ProjectRef = 32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */;
+				},
+				{
+					ProductGroup = 32FAE7B11D393B3A00142DD9 /* Products */;
+					ProjectRef = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				32ED5A2A1D32A08300142DD9 /* Argo */,
@@ -278,6 +350,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		32FAE7B71D393B3A00142DD9 /* libdjinni_jni.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libdjinni_jni.a;
+			remoteRef = 32FAE7B61D393B3A00142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32FAE7B91D393B3A00142DD9 /* libdjinni_objc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libdjinni_objc.a;
+			remoteRef = 32FAE7B81D393B3A00142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32FAE7CB1D393B4400142DD9 /* libArgo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libArgo.a;
+			remoteRef = 32FAE7CA1D393B4400142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32FAE7CD1D393B4400142DD9 /* libArgo_objc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libArgo_objc.a;
+			remoteRef = 32FAE7CC1D393B4400142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32FAE7D31D393B5300142DD9 /* libjson11.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjson11.a;
+			remoteRef = 32FAE7D21D393B5300142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		321404571D242AB800142DD9 /* Resources */ = {
@@ -297,21 +407,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A6DB7077FC917E2F02292E74 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Argo/Pods-Argo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A9660437D563B1B6A42852C5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,21 +420,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5E527B73DD6DA6AA1A8A2C3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D580F36EAA2836E34081083D /* [CP] Check Pods Manifest.lock */ = {
@@ -392,6 +472,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32FAE7D51D393B6000142DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = json11;
+			targetProxy = 32FAE7D41D393B6000142DD9 /* PBXContainerItemProxy */;
+		};
+		32FAE7D71D393B6000142DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libArgo;
+			targetProxy = 32FAE7D61D393B6000142DD9 /* PBXContainerItemProxy */;
+		};
+		32FAE7D91D393B6000142DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libArgo_objc;
+			targetProxy = 32FAE7D81D393B6000142DD9 /* PBXContainerItemProxy */;
+		};
+		32FAE7DB1D393B6000142DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = djinni_objc;
+			targetProxy = 32FAE7DA1D393B6000142DD9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3214046B1D242AB800142DD9 /* Debug */ = {
@@ -481,7 +584,6 @@
 		};
 		321404711D242AB800142DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47D3013E8999ED4D007DD084 /* Pods-ArgoLibTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				HEADER_SEARCH_PATHS = (
@@ -498,7 +600,6 @@
 		};
 		321404721D242AB800142DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B888554D8F8D75F0AC46B02E /* Pods-ArgoLibTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				HEADER_SEARCH_PATHS = (
@@ -515,7 +616,6 @@
 		};
 		32ED5A341D32A08300142DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C91B6C14E8061C6A0C772080 /* Pods-Argo.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -542,7 +642,6 @@
 		};
 		32ED5A351D32A08300142DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E790301219E2C2A56A0FAC4 /* Pods-Argo.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
