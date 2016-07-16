@@ -1,26 +1,74 @@
 BasedOnStyle: LLVM
 
+# Allow statements like 'if (a) return true;'
 AllowShortIfStatementsOnASingleLine: true
+
+# Allow statements like 'while(x) loop;'
 AllowShortLoopsOnASingleLine: true
+
+# Dissallow the formatter from putting short statements on a single line
 AllowShortBlocksOnASingleLine: false
 
+# Disallow collapsing short functions everywhere except empty functions in the class declaration
+AllowShortFunctionsOnASingleLine: Inline
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+# Format initializer lists according to C++11 standards
+Cpp11BracedListStyle: true
+
+# Indent namespaces
+NamespaceIndentation: All
+
+# All params have to either be on the same line, or all on their own line
 BinPackParameters: false
 
+# Always put braces on the same line (like they should)
 BreakBeforeBraces: Attach
 
+# Use at most 200 characters per line, use up to 100 tabs and 1 tab = 4 spaces
 ColumnLimit: 200
 TabWidth: 100
 IndentWidth: 4
 
+# Indent public/private etc. by 2 spaces 
+AccessModifierOffset: -2
+
+# Keep at most 1 empty line (e.g. between functions)
 MaxEmptyLinesToKeep: 1
+
 ObjCSpaceAfterProperty: true
 ObjCSpaceBeforeProtocolList: true
 ObjCBlockIndentWidth: 4
+
+# Pointer is on the variable, like it should be (i.e. "T *a;" and not "T* a;")
 PointerBindsToType: false
+
+# Put a space before = and ()
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeParens: ControlStatements
+
+# Put spaces between array elements [a, b, c] 
 SpacesInContainerLiterals: true
+
+# Use tabs to indent, spaces to align (the one true way)
 UseTab: ForIndentation
 
+# Indent case labels one step from the switch
 IndentCaseLabels: true
+
+# Align comments at the end of the line in consecutive lines
 AlignTrailingComments: true
+
+# Align function calls/declarations on the opening bracket, e.g. 
+# call(arg1,
+#      arg2);
+AlignAfterOpenBracket: Align
+
+# Put a space before () in for/if/while
+SpaceBeforeParens: ControlStatements
+
+# Misc
+ReflowComments: true
+SortIncludes: true
+SpaceAfterCStyleCast: true
