@@ -11,6 +11,7 @@ OBJC_OUT=ios/generated/
 YAML_OUT=.
 YAML_FILE=Argo.yaml
 
+# Run djinni
 ./dependencies/djinni/src/run-assume-built \
    --java-out $ANDROID_OUT \
    --java-package "djinni" \
