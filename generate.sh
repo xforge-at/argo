@@ -9,6 +9,7 @@ CPP_OUT=src/generated/
 JNI_OUT=android/generated/jni/
 OBJC_OUT=ios/generated/
 YAML_OUT=.
+YAML_FILE=Argo.yaml
 
 ./dependencies/djinni/src/run-assume-built \
    --java-out $ANDROID_OUT \
@@ -32,6 +33,9 @@ YAML_OUT=.
    --objcpp-include-cpp-prefix "generated/" \
    \
    --yaml-out $YAML_OUT \
-   --yaml-out-file "Argo.yaml" \
+   --yaml-out-file $YAML_FILE \
    \
    --idl records/libArgo.djinni 
+
+# Replace "header.hpp" with <argo/header.hpp>
+sed -i 's/\"\(.*\.hpp\)\"/<argo\/\1>/g' $YAML_OUT/$YAML_FILE
