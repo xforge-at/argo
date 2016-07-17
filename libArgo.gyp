@@ -11,7 +11,6 @@
 		    ['OS=="ios"', {'ldflags' : ['-Idispatch']}],
 		    ['OS=="android"', 
 			{
-			    #'dependencies' : ['dependencies/libdispatch.gyp:libdispatch']
 			    'include_dirs+' : [ 'dependencies/libdispatch' ],
 			    'cflags+' : [ '-DTARGET_OS_ANDROID' ],
 			}
@@ -21,7 +20,7 @@
 		    "<!@(python glob.py src *.cpp *.hpp)",
 		],
 		'all_dependent_settings' : {
-		    'include_dirs' : [ 'src' ],
+		    'include_dirs' : [ 'src', 'src/generated/'],
 		},
 		'include_dirs': [
 		    'src',
@@ -44,6 +43,9 @@
 			'sources': [
 			    '<!@(python glob.py ios/generated *.mm *.h *.m)',
 			],
+			'all_dependent_settings' : {
+			    'include_dirs' : [ 'ios/generated/' ],
+			},
 			'include_dirs': [
 			    'dependencies/gsl/include',
 			    'dependencies/ftl/include',
