@@ -31,8 +31,12 @@ bool main_thread_helper::wait_for_items(int32_t timeout_microseconds) {
     return select(this->_handle + 1, &readable_set, NULL, NULL, timeout_microseconds != 0 ? &time : NULL) > 0;
 }
 
-void main_thread_helper::drain_queue() { dispatch_main_queue_drain_np(); }
+void main_thread_helper::drain_queue() {
+    dispatch_main_queue_drain_np();
+}
 
-nn_shared_ptr<MainThreadDispatchQueueHelper> Argo::MainThreadDispatchQueueHelper::create() { return make_not_null(make_shared<main_thread_helper>()); }
+nn_shared_ptr<MainThreadDispatchQueueHelper> Argo::MainThreadDispatchQueueHelper::create() {
+    return make_not_null(make_shared<main_thread_helper>());
+}
 
 #endif

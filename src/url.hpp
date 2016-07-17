@@ -27,14 +27,16 @@ std::string url_encode(const std::string &value) {
 
         // Any other characters are percent-encoded
         escaped << std::uppercase;
-        escaped << '%' << std::setw(2) << int((unsigned char)c);
+        escaped << '%' << std::setw(2) << int((unsigned char) c);
         escaped << std::nouppercase;
     }
 
     return escaped.str();
 }
 
-char from_hex(char ch) { return std::isdigit(ch) ? ch - '0' : std::tolower(ch) - 'a' + 10; }
+char from_hex(char ch) {
+    return std::isdigit(ch) ? ch - '0' : std::tolower(ch) - 'a' + 10;
+}
 
 std::string url_decode(const std::string &text) {
     char h;
