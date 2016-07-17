@@ -37,6 +37,3 @@ YAML_FILE=Argo.yaml
    --yaml-out-file $YAML_FILE \
    \
    --idl records/libArgo.djinni 
-
-# Replace "header.hpp" with <argo/header.hpp>
-sed -i '' 's/\"\(.*\.hpp\)\"/<argo\/\1>/g' $YAML_OUT/$YAML_FILE
