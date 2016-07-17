@@ -8,9 +8,9 @@
 
 import Foundation
 
-class HTTPRequestor: NSObject, XFHttpRequestor {
+public class HTTPRequestor: NSObject, XFHttpRequestor {
 
-	func executeRequest(request: XFRequest, callback: XFHttpRequestorCallback) {
+	public func executeRequest(request: XFRequest, callback: XFHttpRequestorCallback) {
 		let urlRequest = NSMutableURLRequest(URL: NSURL(string: request.url)!)
 		let session = NSURLSession.sharedSession()
 		urlRequest.HTTPMethod = request.method
