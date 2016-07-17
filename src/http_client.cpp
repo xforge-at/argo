@@ -28,13 +28,9 @@ void HTTPClient::Callback::receive_response(const Argo::Response &response) {
     string jsonError;
     auto json_response = Json::parse(bodyString, jsonError);
     if (!jsonError.empty()) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            this->error(Error{jsonError});
-        });
+        this->error(Error{jsonError});
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            this->success(json_response);
-        });
+        this->success(json_response);
     }
 }
 
