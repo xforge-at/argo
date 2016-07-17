@@ -28,10 +28,16 @@ void HTTPClient::Callback::receive_response(const Argo::Response &response) {
     string jsonError;
     auto json_response = Json::parse(bodyString, jsonError);
     if (!jsonError.empty()) {
-        this->error(Error{jsonError});
+        dispatch_async(dispatch_get_main_queue(), ^{
+            this->error(Error{jsonError});
+        });
     } else {
-        this->success(json_response);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            this->success(json_response);
+        });
     }
 }
 
-void HTTPClient::Callback::receive_error(const Argo::Error &error) { this->error(error); }
+void HTTPClient::Callback::receive_error(const Argo::Error &error) {
+    this->error(error);
+}
