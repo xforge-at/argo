@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/google/leveldb.git
+	branch = master
+	commit = fa6dc010a20b6eb175d92d05651972651278e06f
+	parent = 70c8df97daf6e1f6891c26a4c3289a3faae3aa93
+	cmdver = 0.3.0
