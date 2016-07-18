@@ -19,6 +19,7 @@
 		32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
 		32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7DC1D393B6800142DD9 /* libjson11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FAE7D31D393B5300142DD9 /* libjson11.a */; };
+		4CADBF791D3D35570061F879 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CADBF731D3D352E0061F879 /* libleveldb.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,20 @@
 			remoteGlobalIDString = D8395115E9C30FE491C2AC03;
 			remoteInfo = djinni_objc;
 		};
+		4CADBF721D3D352E0061F879 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8357802E368F5AEB4656026A;
+			remoteInfo = leveldb;
+		};
+		4CADBF771D3D35420061F879 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E4FE8DEA02872CA4A974463;
+			remoteInfo = leveldb;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +126,7 @@
 		32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libArgo.xcodeproj; path = build/libArgo.xcodeproj; sourceTree = "<group>"; };
 		32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json11.xcodeproj; path = build/dependencies/json11.xcodeproj; sourceTree = "<group>"; };
 		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = Argo/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
+		4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = leveldb.xcodeproj; path = build/dependencies/leveldb.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CADBF791D3D35570061F879 /* libleveldb.a in Frameworks */,
 				32FAE7DC1D393B6800142DD9 /* libjson11.a in Frameworks */,
 				32ED5A3C1D32A11400142DD9 /* libArgo_objc.a in Frameworks */,
 				32ED5A3D1D32A11400142DD9 /* libArgo.a in Frameworks */,
@@ -138,6 +155,7 @@
 		17FC35B2447A3615D8EEEADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */,
 				32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */,
 				32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */,
 				32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */,
@@ -239,6 +257,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4CADBF6F1D3D352E0061F879 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CADBF731D3D352E0061F879 /* libleveldb.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -290,6 +316,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4CADBF781D3D35420061F879 /* PBXTargetDependency */,
 				32FAE7D51D393B6000142DD9 /* PBXTargetDependency */,
 				32FAE7D71D393B6000142DD9 /* PBXTargetDependency */,
 				32FAE7D91D393B6000142DD9 /* PBXTargetDependency */,
@@ -333,6 +360,10 @@
 				{
 					ProductGroup = 32FAE7CF1D393B5200142DD9 /* Products */;
 					ProjectRef = 32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */;
+				},
+				{
+					ProductGroup = 4CADBF6F1D3D352E0061F879 /* Products */;
+					ProjectRef = 4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */;
 				},
 				{
 					ProductGroup = 32FAE7C51D393B4400142DD9 /* Products */;
@@ -385,6 +416,13 @@
 			fileType = archive.ar;
 			path = libjson11.a;
 			remoteRef = 32FAE7D21D393B5300142DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4CADBF731D3D352E0061F879 /* libleveldb.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libleveldb.a;
+			remoteRef = 4CADBF721D3D352E0061F879 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -493,6 +531,11 @@
 			isa = PBXTargetDependency;
 			name = djinni_objc;
 			targetProxy = 32FAE7DA1D393B6000142DD9 /* PBXContainerItemProxy */;
+		};
+		4CADBF781D3D35420061F879 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = leveldb;
+			targetProxy = 4CADBF771D3D35420061F879 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
