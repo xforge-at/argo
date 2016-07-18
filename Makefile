@@ -11,11 +11,11 @@ clean:
 	-rm GypAndroid.mk
 	-rm compile_commands.json
 
-ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ common.gypi ./dependencies/json11.gyp
+ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ common.gypi ./dependencies/json11.gyp ./dependencies/leveldb.gyp
 	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ -Icommon.gypi
 
-GypAndroid.mk: records/libArgo.djinni ./libArgo.gyp ./src/ ./dependencies/json11.gyp
+GypAndroid.mk: records/libArgo.djinni ./libArgo.gyp ./src/ ./dependencies/json11.gyp ./dependencies/leveldb.gyp
 	./generate.sh
 	ANDROID_BUILD_TOP=$(shell which ndk-build) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
 

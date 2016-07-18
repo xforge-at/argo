@@ -5,7 +5,8 @@
 		'type': 'static_library',
 		'dependencies': [
 		    'dependencies/djinni/support-lib/support_lib.gyp:djinni_objc',
-		    'dependencies/json11.gyp:json11'
+		    'dependencies/json11.gyp:json11',
+		    'dependencies/leveldb.gyp:leveldb'
 		],
 		'conditions': [ 
 		    ['OS=="ios"', {'ldflags' : ['-Idispatch']}],
