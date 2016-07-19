@@ -10,7 +10,3 @@ main_thread_dispatch_queue_helper = interface +c {
 
     static create() : main_thread_dispatch_queue_helper;
 }
-
-key_value_store_setup = interface +c {
-    static setup(path : string);
-}
