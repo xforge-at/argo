@@ -9,4 +9,4 @@ main_thread_dispatch_queue_helper = interface +c {
     drain_queue();
 
     static create() : main_thread_dispatch_queue_helper;
-}
+} 
