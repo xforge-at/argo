@@ -81,14 +81,17 @@ public class HTTPRequestor extends HttpRequestor {
                     InputStream is = connection.getInputStream();
                     byte[] body = IOUtils.toByteArray(is);
 
-                    Response r = new Response(request, headerFields, body);
+                    //Get status code
+                    int statusCode = connection.getResponseCode();
+
+                    Response r = new Response(request, statusCode, headerFields, body);
                     callback.receiveResponse(r);
                 } catch (MalformedURLException e) {
-                    callback.receiveError(new Error(e.getMessage()));
+                    callback.receiveError(new Error(0, e.getMessage()));
                 } catch (ProtocolException e) {
-                    callback.receiveError(new Error(e.getMessage()));
+                    callback.receiveError(new Error(0, e.getMessage()));
                 } catch (IOException e) {
-                    callback.receiveError(new Error(e.getMessage()));
+                    callback.receiveError(new Error(0, e.getMessage()));
                 }
             }
         });

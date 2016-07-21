@@ -23,14 +23,19 @@ void HTTPClient::send(HTTPMethod method, const string &url, success_block_t succ
 void HTTPClient::Callback::receive_response(const Argo::Response &response) {
 
     // check http status code
-
-    string bodyString{response.body->begin(), response.body->end()};
-    string jsonError;
-    auto json_response = Json::parse(bodyString, jsonError);
-    if (!jsonError.empty()) {
-        this->error(Error{jsonError});
+    let status_code = response.status_code;
+    if (status_code >= 400) {
+        this->error(Error{status_code, ""});
     } else {
-        this->success(json_response);
+        // parse JSON
+        string bodyString{response.body->begin(), response.body->end()};
+        string jsonError;
+        auto json_response = Json::parse(bodyString, jsonError);
+        if (!jsonError.empty()) {
+            this->error(Error{0, jsonError});
+        } else {
+            this->success(json_response);
+        }
     }
 }
 
