@@ -1,7 +1,7 @@
 package at.xforge.argo
 
 import android.app.Application
-import at.xforge.argo.cpp_support.DispatchHelperRunnable
+import at.xforge.argo.DispatchHelperRunnable
 import djinni.MainThreadDispatchQueueHelper
 
 /**
