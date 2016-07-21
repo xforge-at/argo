@@ -48,3 +48,12 @@ TEST_F(KeyValueStoreTest, IntGetNullopt) {
   optional<int32_t> outInt = store->getInt("notStoredKey");
   ASSERT_FALSE(outInt) << "Int should be nullopt";
 }
+
+TEST_F(KeyValueStoreTest, IntGetNulloptFormatException) {
+  string key = "key3";
+  string value = "var";
+
+  store->putString(key, value);
+  optional<int32_t> outInt = store->getInt(key);
+  ASSERT_FALSE(outInt) << "Int should be nullopt because of format exception";
+}
