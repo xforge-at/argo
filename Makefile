@@ -6,7 +6,7 @@ GYP_FILES=$(find . -name "*.gyp" -or -name "*.gypi" -maxdepth 2)
 all: ios android
 
 clean:
-	-xcodebuild -workspace ios/ArgoLib.xcworkspace -scheme ArgoLib clean
+	-xcodebuild -project ios/ArgoLib.xcodeproj -scheme Argo clean
 	-cd android/app && ndk-build clean
 	-rm -r **/generated/	
 	-rm -r **/build/
@@ -31,7 +31,7 @@ ios: ios/build/libArgo.xcodeproj
 android: GypAndroid.mk
 
 compile_commands.json: ios
-	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
+	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -project ./ios/ArgoLib.xcodeproj -scheme Argo -sdk iphonesimulator -jobs 8
 
 test: $(TEST_FILES) $(SRC_FILES) Argo.yaml
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi
