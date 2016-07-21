@@ -19,17 +19,12 @@
 		32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */; };
 		32FAE7AB1D38C62500142DD9 /* XFHttpRequestorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FAE7DC1D393B6800142DD9 /* libjson11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FAE7D31D393B5300142DD9 /* libjson11.a */; };
+		4C1F25521D410C3400F7D7A2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F25511D410C3400F7D7A2 /* FileManager.swift */; };
+		4C1F25551D4114E000F7D7A2 /* XFFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1F25541D4114E000F7D7A2 /* XFFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CADBF791D3D35570061F879 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CADBF731D3D352E0061F879 /* libleveldb.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		32FAE7B61D393B3A00142DD9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC658C749F521B13A5BDCBBC;
-			remoteInfo = djinni_jni;
-		};
 		32FAE7B81D393B3A00142DD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */;
@@ -125,6 +120,8 @@
 		32FAE7B01D393B3A00142DD9 /* support_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = support_lib.xcodeproj; path = "build/dependencies/djinni/support-lib/support_lib.xcodeproj"; sourceTree = "<group>"; };
 		32FAE7C41D393B4400142DD9 /* libArgo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libArgo.xcodeproj; path = build/libArgo.xcodeproj; sourceTree = "<group>"; };
 		32FAE7CE1D393B5200142DD9 /* json11.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json11.xcodeproj; path = build/dependencies/json11.xcodeproj; sourceTree = "<group>"; };
+		4C1F25511D410C3400F7D7A2 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		4C1F25541D4114E000F7D7A2 /* XFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFFileManager.h; path = generated/XFFileManager.h; sourceTree = SOURCE_ROOT; };
 		4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequestor.swift; path = Argo/HTTPRequestor.swift; sourceTree = SOURCE_ROOT; };
 		4CADBF6E1D3D352E0061F879 /* leveldb.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = leveldb.xcodeproj; path = build/dependencies/leveldb.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +210,7 @@
 				32ED5A481D32A8F000142DD9 /* Header */,
 				32ED5A2F1D32A08300142DD9 /* Info.plist */,
 				4C5A864C1D328AFA0045CE55 /* HTTPRequestor.swift */,
+				4C1F25511D410C3400F7D7A2 /* FileManager.swift */,
 			);
 			path = Argo;
 			sourceTree = "<group>";
@@ -225,6 +223,7 @@
 				32FAE7A31D38C4F700142DD9 /* XFHttpRequestor.h */,
 				32FAE7AA1D38C62500142DD9 /* XFHttpRequestorCallback.h */,
 				32FAE7A41D38C4F700142DD9 /* XFError.h */,
+				4C1F25541D4114E000F7D7A2 /* XFFileManager.h */,
 				32ED5A2D1D32A08300142DD9 /* Argo.h */,
 				32ED5A461D32A62900142DD9 /* module.modulemap */,
 			);
@@ -234,7 +233,6 @@
 		32FAE7B11D393B3A00142DD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				32FAE7B71D393B3A00142DD9 /* libdjinni_jni.a */,
 				32FAE7B91D393B3A00142DD9 /* libdjinni_objc.a */,
 			);
 			name = Products;
@@ -272,6 +270,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1F25551D4114E000F7D7A2 /* XFFileManager.h in Headers */,
 				32FAE7A61D38C4F700142DD9 /* XFRequest.h in Headers */,
 				32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */,
 				32FAE7A71D38C4F700142DD9 /* XFHttpRequestor.h in Headers */,
@@ -383,13 +382,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		32FAE7B71D393B3A00142DD9 /* libdjinni_jni.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libdjinni_jni.a;
-			remoteRef = 32FAE7B61D393B3A00142DD9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		32FAE7B91D393B3A00142DD9 /* libdjinni_objc.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -506,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FAE7A91D38C5EE00142DD9 /* HTTPRequestor.swift in Sources */,
+				4C1F25521D410C3400F7D7A2 /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

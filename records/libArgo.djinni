@@ -1,4 +1,5 @@
 @import "network.djinni"
+@import "key_value_store.djinni"
 
 # Helps to drain the main queue on Android, useless on iOS
 main_thread_dispatch_queue_helper = interface +c {

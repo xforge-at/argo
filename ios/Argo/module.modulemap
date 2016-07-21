@@ -6,6 +6,7 @@ framework module Argo {
     header "XFRequest.h"
     header "XFHTTPRequestor.h"
     header "XFHTTPRequestorCallback.h"
+    header "XFFileManager.h"
     header "XFError.h"
     
     export *
