@@ -35,7 +35,7 @@ compile_commands.json: ios
 
 test: $(TEST_FILES) $(SRC_FILES) Argo.yaml 
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi &> /dev/null
-	make -C ./test/build/ &> /dev/null
+	make -C ./test/build/ > /dev/null
 	./test/build/out/Debug/test
 
 print_vars:
