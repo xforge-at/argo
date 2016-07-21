@@ -44,6 +44,7 @@
 	    'dependencies': [
 		'libArgo',
 		'dependencies/googletest.gyp:googletest',
+		'dependencies/leveldb.gyp:leveldb'
 	    ],
 	    'include_dirs': [
 		'test',
