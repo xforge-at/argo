@@ -13,7 +13,7 @@ clean:
 
 ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ common.gypi ./dependencies/json11.gyp ./dependencies/leveldb.gyp
 	./generate.sh
-	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ -Icommon.gypi
+	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ --root-target=libArgo_objc -Icommon.gypi
 
 GypAndroid.mk: records/libArgo.djinni ./libArgo.gyp ./src/ ./dependencies/json11.gyp ./dependencies/leveldb.gyp
 	./generate.sh
@@ -26,8 +26,8 @@ android: GypAndroid.mk
 compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
 
-test: src/test/ src/ ./records/
+test: test/ src/ ./records/
 	./generate.sh
-	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=mac --depth=. --generator-output=./build/ --root-target=test -Icommon.gypi
+	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -DOS=mac --depth=. --generator-output=./build/ --root-target=test -Icommon.gypi
 
 .PHONY: ios android clean all

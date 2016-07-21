@@ -4,12 +4,18 @@
 	    'target_name': 'libArgo',
 		'type': 'static_library',
 		'dependencies': [
-		    'dependencies/djinni/support-lib/support_lib.gyp:djinni_objc',
 		    'dependencies/json11.gyp:json11',
 		    'dependencies/leveldb.gyp:leveldb'
 		],
 		'conditions': [ 
-		    ['OS=="ios"', {'ldflags' : ['-Idispatch']}],
+		    ['OS=="ios"', 
+			{
+			    'ldflags' : ['-Idispatch'],
+			    'cflags+' : [
+				'>@(_error_flags_ios)',
+			    ]
+			}
+		    ],
 		    ['OS=="android"', 
 			{
 			    'include_dirs+' : [ 'dependencies/libdispatch' ],
@@ -36,17 +42,13 @@
 		'libArgo',
 		'dependencies/googletest.gyp:googletest',
 	    ],
-	    'cflags_cc!': [ '-Werror', '-Wextra' ],
-	    'xcode_settings': {
-		'OTHER_CPLUSPLUSFLAGS!' : ['-Werror', '-Wextra'],
-	    },
 	    'include_dirs': [
-		'src/test',
+		'test',
 		'src',
 		'src/generated',
 	    ],
 	    'sources': [
-		'<!@(python glob.py src/test *.cpp *.hpp)',
+		'<!@(python glob.py test *.cpp *.hpp)',
 	    ]
 	}
     ],
@@ -63,6 +65,12 @@
 			],
 			'sources': [
 			    '<!@(python glob.py ios/generated *.mm *.h *.m)',
+			],
+			'cflags+' : [
+			    '>@(_error_flags_ios)',
+			    '-Wno-old-style-cast',
+			    '-Wno-idiomatic-parentheses',
+			    '-Wno-unused-exception-parameter',
 			],
 			'all_dependent_settings' : {
 			    'include_dirs' : [ 'ios/generated/' ],
