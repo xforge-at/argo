@@ -29,6 +29,26 @@
 		    'dependencies/ftl/include',
 		],
 	},
+	{
+	    'target_name': 'test',
+	    'type': 'executable',
+	    'dependencies': [
+		'libArgo',
+		'dependencies/googletest.gyp:googletest',
+	    ],
+	    'cflags_cc!': [ '-Werror', '-Wextra' ],
+	    'xcode_settings': {
+		'OTHER_CPLUSPLUSFLAGS!' : ['-Werror', '-Wextra'],
+	    },
+	    'include_dirs': [
+		'src/test',
+		'src',
+		'src/generated',
+	    ],
+	    'sources': [
+		'<!@(python glob.py src/test *.cpp *.hpp)',
+	    ]
+	}
     ],
     'conditions': [
 	['OS=="ios"', 
