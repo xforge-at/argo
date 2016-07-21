@@ -21,11 +21,9 @@ Argo.yaml: $(DJINNI_FILES)
 	./generate.sh
 
 ios/build/libArgo.xcodeproj: Argo.yaml $(SRC_FILES) $(GYP_FILES)
-	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ --root-target=libArgo_objc -Icommon.gypi
 
 GypAndroid.mk: Argo.yaml $(SRC_FILES) $(GYP_FILES)
-	./generate.sh
 	ANDROID_BUILD_TOP=$(shell which ndk-build) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
 
 ios: ios/build/libArgo.xcodeproj 
@@ -36,7 +34,6 @@ compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
 
 test: $(TEST_FILES) $(SRC_FILES) Argo.yaml
-	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi
 	make -C ./test/build/
 	./test/build/out/Debug/test
