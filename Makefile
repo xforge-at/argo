@@ -13,6 +13,7 @@ clean:
 	-rm -r build
 	-rm -r obj
 	-rm *.target.mk
+	-rm Argo.yaml
 	-rm GypAndroid.mk
 	-rm compile_commands.json
 
