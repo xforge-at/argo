@@ -1,3 +1,8 @@
+SRC_FILES=$(python glob.py src "*.cpp" "*.hpp")
+TEST_FILES=$(python glob.py test "*.cpp" "*.hpp")
+DJINNI_FILES=$(python glob.py records "*.djinni")
+GYP_FILES=$(find . -name "*.gyp" -or -name "*.gypi" -maxdepth 2)
+
 all: ios android
 
 clean:
@@ -11,11 +16,15 @@ clean:
 	-rm GypAndroid.mk
 	-rm compile_commands.json
 
-ios/build/libArgo.xcodeproj: ./records/libArgo.djinni ./libArgo.gyp ./src/ common.gypi ./dependencies/json11.gyp ./dependencies/leveldb.gyp
+# This file changes whenever the djinni files change -> good target for the rest to depend on
+Argo.yaml: $(DJINNI_FILES)
+	./generate.sh
+
+ios/build/libArgo.xcodeproj: Argo.yaml $(SRC_FILES) $(GYP_FILES)
 	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ --root-target=libArgo_objc -Icommon.gypi
 
-GypAndroid.mk: records/libArgo.djinni ./libArgo.gyp ./src/ ./dependencies/json11.gyp ./dependencies/leveldb.gyp
+GypAndroid.mk: Argo.yaml $(SRC_FILES) $(GYP_FILES)
 	./generate.sh
 	ANDROID_BUILD_TOP=$(shell which ndk-build) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
 
@@ -26,7 +35,7 @@ android: GypAndroid.mk
 compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
 
-test: test/%.cpp src/ ./records/
+test: $(TEST_FILES) $(SRC_FILES) Argo.yaml
 	./generate.sh
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi
 	make -C ./test/build/
