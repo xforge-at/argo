@@ -71,7 +71,6 @@
       , ['OS != "win"' and 'OS != "freebsd"', {
             'cflags': [
                 '-Wno-sign-compare'
-              , '-Wno-unused-but-set-variable'
             ]
         }]
       , ['OS == "linux"', {
@@ -113,7 +112,7 @@
                 '-pthread'
             ]
         }]
-      , ['OS == "ios"', {
+      , ['OS == "ios" or OS=="mac"', {
             'defines': [
                 'OS_MACOSX=1'
             ]

@@ -26,8 +26,10 @@ android: GypAndroid.mk
 compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -workspace ./ios/ArgoLib.xcworkspace -scheme ArgoLib -sdk iphonesimulator -jobs 8
 
-test: test/ src/ ./records/
+test: test/%.cpp src/ ./records/
 	./generate.sh
-	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -DOS=mac --depth=. --generator-output=./build/ --root-target=test -Icommon.gypi
+	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi
+	make -C ./test/build/
+	./test/build/out/Debug/test
 
 .PHONY: ios android clean all
