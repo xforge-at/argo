@@ -27,7 +27,10 @@
 		    "<!@(python glob.py src *.cpp *.hpp)",
 		],
 		'all_dependent_settings' : {
-		    'include_dirs' : [ 'src', 'src/generated/'],
+		    'include_dirs' : [ 
+			'src', 
+			'src/generated/'
+		    ],
 		},
 		'include_dirs': [
 		    'src',
@@ -46,6 +49,8 @@
 		'test',
 		'src',
 		'src/generated',
+		'dependencies/gsl/include',
+		'dependencies/ftl/include',
 	    ],
 	    'sources': [
 		'<!@(python glob.py test *.cpp *.hpp)',

@@ -1,5 +1,6 @@
 @import "network.djinni"
 
+# Helps to drain the main queue on Android, useless on iOS
 main_thread_dispatch_queue_helper = interface +c {
     # Wait until queue becomes readable
     # True if there is an item in the queue, false otherwise

@@ -1,7 +1,7 @@
-SRC_FILES=$(shell python glob.py src "*.cpp" "*.hpp")
-TEST_FILES=$(shell python glob.py test "*.cpp")
-DJINNI_FILES=$(shell find records -name "*.djinni")
-GYP_FILES=$(shell find . -name "*.gyp" -or -name "*.gypi" -maxdepth 2)
+SRC_FILES := $(shell python glob.py src "*.cpp" "*.hpp")
+TEST_FILES := $(shell python glob.py test "*.cpp")
+DJINNI_FILES := $(shell find records -name "*.djinni")
+GYP_FILES := $(shell find . -name "*.gyp" -or -name "*.gypi" -maxdepth 2)
 
 all: ios android test
 
@@ -34,8 +34,8 @@ compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -project ./ios/ArgoLib.xcodeproj -scheme Argo -sdk iphonesimulator -jobs 8
 
 test: $(TEST_FILES) $(SRC_FILES) Argo.yaml 
-	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi
-	make -C ./test/build/
+	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi &> /dev/null
+	make -C ./test/build/ &> /dev/null
 	./test/build/out/Debug/test
 
 print_vars:

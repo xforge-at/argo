@@ -3,9 +3,25 @@
 #import <gtest/gtest.h>
 
 TEST(URLEncodeTest, SpacesAreEncoded) {
-    ASSERT_TRUE(true) << "This should absolutely work";
+    auto baseString = "hello world";
+    auto urlEncoded = url_encode(baseString);
+    ASSERT_EQ(urlEncoded, "hello%20world") << "Spaces should have been encoded";
 }
 
-TEST(URLEncodeTest, MoreTests) {
-    ASSERT_TRUE(false) << "This fails now";
+TEST(URLEncodeTest, RegularStringsStayTheSame) {
+    auto baseString = "thisIsAStringThatCanBeUsedInURLsUnchanged";
+    auto urlEncoded = url_encode(baseString);
+    auto urlDecoded = url_decode(baseString);
+
+    ASSERT_EQ(baseString, urlEncoded) << "A string with no special symbols should stay the same with encode/decode";
+    ASSERT_EQ(urlDecoded, urlEncoded) << "A string with no special symbols should stay the same with encode/decode";
+    ASSERT_EQ(baseString, urlDecoded) << "A string with no special symbols should stay the same with encode/decode";
+}
+
+TEST(URLEncodeTest, EncodeDecodeShouldBeEqual) {
+    auto baseString = "https://www.AStringWithMany special$symbols.com/\\Blabla/?q=t&b=p";
+    auto urlEncoded = url_encode(baseString);
+    auto urlDecoded = url_decode(urlEncoded);
+
+    ASSERT_EQ(baseString, urlDecoded) << "URL encode -> decode should yield the original string";
 }
