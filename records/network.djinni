@@ -7,12 +7,13 @@ request = record {
 
 response = record {
     request : request;
+    status_code : i32;
     header : map<string,string>;
     body : optional<binary>;
 }
 
 error = record {
-    # add more fields
+    code : i32;
     message : string;
 }
 
