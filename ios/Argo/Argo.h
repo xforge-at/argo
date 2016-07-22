@@ -12,6 +12,7 @@
 #import "XFRequest.h"
 #import "XFHttpRequestor.h"
 #import "XFHttpRequestorCallback.h"
+#import "XFFileManager.h"
 #import "XFError.h"
 
 //#import "Argo-Swift.h"
