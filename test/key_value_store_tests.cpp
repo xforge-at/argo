@@ -111,3 +111,33 @@ TEST_F(KeyValueStoreTest, FloatGetNulloptFormatException) {
   optional<float> outFloat = store->getFloat(key);
   ASSERT_FALSE(outFloat) << "Float should be nullopt because of format exception";
 }
+
+// Json
+
+TEST_F(KeyValueStoreTest, JsonIsSaved) {
+  string key = "key8";
+  Json value = Json::object {
+    { "key1", "value1" },
+    { "key2", false },
+    { "key3", Json::array { 1, 2, 3 } },
+    { "key4", 996.8 },
+  };
+
+  store->putJson(key, value);
+  optional<Json> outJson = store->getJson(key);
+  ASSERT_EQ(value, *outJson) << "Json objects should be equal";
+}
+
+TEST_F(KeyValueStoreTest, JsonGetNullopt) {
+  optional<Json> outJson = store->getJson("notStoredKey");
+  ASSERT_FALSE(outJson) << "Json should be nullopt";
+}
+
+TEST_F(KeyValueStoreTest, JsonGetNulloptFormatException) {
+  string key = "key9";
+  string value = "var";
+
+  store->putString(key, value);
+  optional<Json> outJson = store->getJson(key);
+  ASSERT_FALSE(outJson) << "Json should be nullopt because of format exception";
+}

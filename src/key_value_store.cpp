@@ -66,6 +66,27 @@ void KeyValueStore::putFloat(const string &key, const float &value) {
     put(key, std::to_string(value));
 }
 
+// Json
+
+optional<Json> KeyValueStore::getJson(const string &key) {
+    optional<string> stringValue = get(key);
+    if (!stringValue) return nullopt;
+
+    optional<Json> jsonValue = nullopt;
+
+    string err;
+    jsonValue = Json::parse(*stringValue, err);
+    if (!err.empty()) {
+        return nullopt;
+    }
+
+    return jsonValue;
+}
+
+void KeyValueStore::putJson(const string &key, const Json &value) {
+    put(key, value.dump());
+}
+
 // DB
 
 leveldb::DB *KeyValueStore::openDB() {

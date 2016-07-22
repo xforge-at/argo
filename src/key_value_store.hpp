@@ -1,5 +1,8 @@
 #import "util.hpp"
+#import <json11/json11.hpp>
 #import <leveldb/db.h>
+
+using json11::Json;
 
 class KeyValueStore {
   public:
