@@ -13,6 +13,15 @@ class KeyValueStore {
     optional<int32_t> getInt(const string &key);
     void putInt(const string &key, const int32_t &value);
 
+    optional<double> getDouble(const string &key);
+    void putDouble(const string &key, const double &value);
+
+    optional<float> getFloat(const string &key);
+    void putFloat(const string &key, const float &value);
+
+    optional<Json> getJson(const string &key);
+    void putJson(const string &key, const Json &value);
+
   private:
     const string &path;
 

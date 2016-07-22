@@ -30,6 +30,42 @@ void KeyValueStore::putInt(const string &key, const int32_t &value) {
     put(key, std::to_string(value));
 }
 
+// Double
+
+optional<double> KeyValueStore::getDouble(const string &key) {
+    optional<string> stringValue = get(key);
+    if (!stringValue) return nullopt;
+
+    optional<double> doubleValue = nullopt;
+    try {
+        doubleValue = std::stod(*stringValue);
+    } catch (...) {
+    }
+    return doubleValue;
+}
+
+void KeyValueStore::putDouble(const string &key, const double &value) {
+    put(key, std::to_string(value));
+}
+
+// Float
+
+optional<float> KeyValueStore::getFloat(const string &key) {
+    optional<string> stringValue = get(key);
+    if (!stringValue) return nullopt;
+
+    optional<float> floatValue = nullopt;
+    try {
+        floatValue = std::stof(*stringValue);
+    } catch (...) {
+    }
+    return floatValue;
+}
+
+void KeyValueStore::putFloat(const string &key, const float &value) {
+    put(key, std::to_string(value));
+}
+
 // DB
 
 leveldb::DB *KeyValueStore::openDB() {
