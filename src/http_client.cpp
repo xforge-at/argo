@@ -1,7 +1,12 @@
+#import "http_client.hpp"
 #import "generated/error.hpp"
 #import "generated/http_requestor.hpp"
-#import "generated/response.hpp"
-#import "http_client.hpp"
+#import "middleware.hpp"
+#import "request_factory.hpp"
+#import <json11/json11.hpp>
+
+using next_request_block = function<Request(Request)>;
+using next_response_block = function<Response(Response)>;
 
 HTTPClient::HTTPClient(nn_shared_ptr<HttpRequestor> requestor) : requestor{requestor} {}
 HTTPClient::Callback::Callback(success_block_t success, error_block_t error) : success{success}, error{error} {}
@@ -41,4 +46,12 @@ void HTTPClient::Callback::receive_response(const Argo::Response &response) {
 
 void HTTPClient::Callback::receive_error(const Argo::Error &error) {
     this->error(error);
+}
+
+template <typename T> void HTTPClient::use_middleware() {
+    _middlewares.push_back(T(make_not_null(this)));
+}
+
+void HTTPClient::use_middleware(HTTPMiddleware &middleware) {
+    _middlewares.push_back(middleware);
 }
