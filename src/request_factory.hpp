@@ -1,8 +1,7 @@
 #import "generated/request.hpp"
+#import "http_method.hpp"
 #import "util.hpp"
 #import <json11/json11.hpp>
-
-typedef enum HTTPMethod { GET, POST, PUT, PATCH, DELETE } HTTPMethod;
 
 using Argo::Request;
 using json11::Json;

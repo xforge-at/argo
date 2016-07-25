@@ -1,6 +1,7 @@
 #import "generated/http_requestor.hpp"
 #import "generated/http_requestor_callback.hpp"
 #import "request_factory.hpp"
+#import "http_method.hpp"
 #import "util.hpp"
 #import <json11/json11.hpp>
 
