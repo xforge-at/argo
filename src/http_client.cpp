@@ -1,15 +1,16 @@
-#import "http_client.hpp"
 #import "generated/error.hpp"
 #import "generated/http_requestor.hpp"
+#import "http_client.hpp"
 #import "middleware.hpp"
 #import "request_factory.hpp"
 #import <json11/json11.hpp>
 
-using next_request_block = function<Request(Request)>;
-using next_response_block = function<Response(Response)>;
+HTTPClient::HTTPClient(nn_shared_ptr<HttpRequestor> requestor) : requestor{requestor}, chain() {}
+HTTPClient::Callback::Callback(success_block_t success, error_block_t error, HTTPClient *client) : success{success}, error{error}, client(client) {}
 
-HTTPClient::HTTPClient(nn_shared_ptr<HttpRequestor> requestor) : requestor{requestor} {}
-HTTPClient::Callback::Callback(success_block_t success, error_block_t error) : success{success}, error{error} {}
+HTTPMiddleware *HTTPClient::getFirstMiddleware() {
+    return chain.first();
+}
 
 void HTTPClient::get(const string &url, success_block_t success, error_block_t error) {
     this->send(HTTPMethod::GET, url, success, error);
@@ -17,30 +18,29 @@ void HTTPClient::get(const string &url, success_block_t success, error_block_t e
 
 void HTTPClient::send(HTTPMethod method, const string &url, success_block_t success, error_block_t error) {
 
-    nn_shared_ptr<Callback> cb = make_not_null(make_shared<Callback>(success, error));
+    nn_shared_ptr<Callback> cb = make_not_null(make_shared<Callback>(success, error, this));
 
-    // add session token
+    var request = RequestFactory::buildRequest(method, url);
+    let firstMiddleware = getFirstMiddleware();
+    if (firstMiddleware) {
+        MiddlewareRequest middlewareRequest = (*firstMiddleware)(request);
 
-    let request = RequestFactory::buildRequest(method, url);
-    this->requestor->execute_request(request, cb);
+        middlewareRequest.matchE([&cb, &requestor = this->requestor ](const Request &request) { requestor->execute_request(request, cb); }, [&cb](const Error &error) { cb->receive_error(error); });
+    } else {
+        this->requestor->execute_request(request, cb);
+    }
 }
 
 void HTTPClient::Callback::receive_response(const Argo::Response &response) {
 
-    // check http status code
-    let status_code = response.status_code;
-    if (status_code >= 400) {
-        this->error(Error{status_code, ""});
+    let firstMiddleware = client->getFirstMiddleware();
+    if (firstMiddleware) {
+        var tempResponse = Response{response};
+        MiddlewareResponse middlewareResponse = (*firstMiddleware)(tempResponse);
+
+        middlewareResponse.matchE([&success_func = this->success](const Response &response) { success_func(response); }, [&error_func = this->error](const Error &error) { error_func(error); });
     } else {
-        // parse JSON
-        string bodyString{response.body->begin(), response.body->end()};
-        string jsonError;
-        auto json_response = Json::parse(bodyString, jsonError);
-        if (!jsonError.empty()) {
-            this->error(Error{0, jsonError});
-        } else {
-            this->success(json_response);
-        }
+        this->success(response);
     }
 }
 
@@ -48,10 +48,6 @@ void HTTPClient::Callback::receive_error(const Argo::Error &error) {
     this->error(error);
 }
 
-template <typename T> void HTTPClient::use_middleware() {
-    _middlewares.push_back(T(make_not_null(this)));
-}
-
-void HTTPClient::use_middleware(HTTPMiddleware &middleware) {
-    _middlewares.push_back(middleware);
+void HTTPClient::use_middleware(unique_ptr<HTTPMiddleware> &middleware) {
+    chain.append(middleware);
 }
