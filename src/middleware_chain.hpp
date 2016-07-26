@@ -11,7 +11,9 @@ class MiddlewareChain final {
 
     HTTPMiddleware *first();
 
+    HTTPMiddleware *tail() { return _tail; }
+
   private:
-    unique_ptr<HTTPMiddleware> head;
-    HTTPMiddleware *tail;
+    unique_ptr<HTTPMiddleware> _head;
+    HTTPMiddleware *_tail;
 };

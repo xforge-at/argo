@@ -2,26 +2,26 @@
 #import "middleware_chain.hpp"
 
 MiddlewareChain::MiddlewareChain() {
-    head = nullptr;
-    tail = nullptr;
+    _head = nullptr;
+    _tail = nullptr;
 }
 
 MiddlewareChain::~MiddlewareChain() {
-    head = nullptr;
-    tail = nullptr;
+    _head = nullptr;
+    _tail = nullptr;
 }
 
 void MiddlewareChain::append(unique_ptr<HTTPMiddleware> &middleware) {
-    if (head) {
-        tail->next = std::move(middleware);
-        tail = middleware.get();
+    var raw = middleware.get();
+    if (_head) {
+        _tail->next = std::move(middleware);
+        _tail = raw;
     } else {
-        head = std::move(middleware);
-        tail = middleware.get();
+        _head = std::move(middleware);
+        _tail = raw;
     }
 }
 
-HTTPMiddleware* MiddlewareChain::first() {
-    return head.get();
+HTTPMiddleware *MiddlewareChain::first() {
+    return _head.get();
 }
-

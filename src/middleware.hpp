@@ -1,6 +1,6 @@
 #import "generated/error.hpp"
 #import "generated/request.hpp"
-#import "generated/response.hpp"
+#import "response.hpp"
 #import "http_client.hpp"
 #import <ftl/sum_type.h>
 #import <functional>
@@ -18,8 +18,8 @@ typedef ftl::sum_type<Argo::Response, Argo::Error> MiddlewareResponse;
 class HTTPMiddleware {
   public:
     // These must be implemented to handle requests and responses
-    virtual MiddlewareRequest handle_request(Request &request) {}
-    virtual MiddlewareResponse handle_response(Response &response) {}
+    virtual MiddlewareRequest handle_request(Request &request);
+    virtual MiddlewareResponse handle_response(Response &response);
 
     // Housekeeping is here
     HTTPMiddleware();
