@@ -11,7 +11,7 @@
 
 namespace Argo {
     struct ComponentContainer {
-        template <typename T, typename U> U get_component(string key) const {
+        template <typename T, typename U = typename T::value_type> U get_component(string key) const {
             shared_ptr<T> t = std::static_pointer_cast<T, HttpComponent>(components.at(key));
             return t->value();
         }
