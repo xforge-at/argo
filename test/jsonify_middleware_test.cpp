@@ -30,8 +30,8 @@ TEST(JsonifyMiddlewareTest, ComponentIsSaved) {
     const Response *responseJM = mrj.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(responseJM);
     
-    let newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
-    ASSERT_EQ(jsonObj, newJsonObj);
+    optional<Json> newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
+    ASSERT_EQ(jsonObj, *newJsonObj);
 }
 
 TEST(JsonifyMiddlewareTest, InvalidJson) {
@@ -52,4 +52,24 @@ TEST(JsonifyMiddlewareTest, InvalidJson) {
     MiddlewareResponse mrj = jm.handle_response(newRes);
     const Error *error = mrj.match([](const Error &er) { return &er; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(error);
+}
+
+TEST(JsonifyMiddlewareTest, NoComponent) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+    Response res{req, 200, unordered_map<string, string>(), nullopt};
+
+    StringifyMiddleware sm;
+    MiddlewareResponse mrs = sm.handle_response(res);
+
+    const Response *responseSM = mrs.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(responseSM);
+
+    JsonifyMiddleware jm;
+    Response newRes{*responseSM};
+    MiddlewareResponse mrj = jm.handle_response(newRes);
+    const Response *responseJM = mrj.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(responseJM);
+    
+    optional<Json> newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
+    ASSERT_FALSE(newJsonObj);
 }

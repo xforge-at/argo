@@ -14,8 +14,19 @@ TEST(StringifyMiddlewareTest, ComponentIsSaved) {
     MiddlewareResponse mr = sm.handle_response(res);
     const Response *response = mr.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(response);
-    // let stringComp = get_component<StringComponent>("bodyString", *response);
-    // let newTempString = stringComp->value();
-    let newTempString = response->get_component<StringComponent>("bodyString");
-    ASSERT_EQ(tempString, newTempString);
+    optional<string> newTempString = response->get_component<StringComponent>("bodyString");
+    ASSERT_TRUE(newTempString);
+    ASSERT_EQ(tempString, *newTempString);
+}
+
+TEST(StringifyMiddlewareTest, NoComponent) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+    Response res{req, 200, unordered_map<string, string>(), nullopt};
+
+    StringifyMiddleware sm;
+    MiddlewareResponse mr = sm.handle_response(res);
+    const Response *response = mr.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(response);
+    optional<string> newTempString = response->get_component<StringComponent>("bodyString");
+    ASSERT_FALSE(newTempString);
 }

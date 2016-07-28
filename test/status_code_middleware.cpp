@@ -15,8 +15,9 @@ TEST(StatusCodeMiddlewareTest, GetResponseDescription) {
     const Response *response = mr.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(response);
 
-    let desc = response->get_component<StringComponent>("statusCodeDescription");
-    ASSERT_EQ(desc, "Accepted");
+    optional<string> desc = response->get_component<StringComponent>("statusCodeDescription");
+    ASSERT_TRUE(desc);
+    ASSERT_EQ(*desc, "Accepted");
 }
 
 TEST(StatusCodeMiddlewareTest, GetHttpError) {
