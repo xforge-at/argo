@@ -32,3 +32,17 @@ TEST(StatusCodeMiddlewareTest, GetHttpError) {
     ASSERT_EQ(error->code, code);
     ASSERT_EQ(error->message, "Not Found");
 }
+
+TEST(StatusCodeMiddlewareTest, UnknownHttpError) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+    int32_t code = 5000;
+    Response res{req, code, unordered_map<string, string>(), nullopt};
+
+    StatusCodeMiddleware scm;
+    MiddlewareResponse mr = scm.handle_response(res);
+
+    const Error *error = mr.match([](const Error &er) { return &er; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(error);
+    ASSERT_EQ(error->code, code);
+    ASSERT_EQ(error->message, "Unknown Status Code");
+}
