@@ -1,5 +1,5 @@
 #import "http_component.hpp"
-#import "util.h"
+#import "util.hpp"
 
 struct StringComponent : public HttpComponent {
     using value_type = string;

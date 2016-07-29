@@ -1,5 +1,5 @@
 #import "http_component.hpp"
-#import "util.h"
+#import "util.hpp"
 #import <json11/json11.hpp>
 
 struct JsonComponent : public HttpComponent {

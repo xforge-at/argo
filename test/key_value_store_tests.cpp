@@ -1,5 +1,5 @@
 #import "key_value_store.hpp"
-#import "util.h"
+#import "util.hpp"
 #import <gmock/gmock.h>
 #import <gtest/gtest.h>
 

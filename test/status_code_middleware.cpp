@@ -1,6 +1,6 @@
 #import "status_code_middleware.hpp"
 #import "string_component.hpp"
-#import "util.h"
+#import "util.hpp"
 #import <gmock/gmock.h>
 #import <gtest/gtest.h>
 

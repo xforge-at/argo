@@ -1,6 +1,6 @@
 #import "string_component.hpp"
 #import "stringify_middleware.hpp"
-#import "util.h"
+#import "util.hpp"
 #import <gmock/gmock.h>
 #import <gtest/gtest.h>
 
