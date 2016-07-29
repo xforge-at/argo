@@ -50,11 +50,11 @@ MiddlewareResponse StatusCodeMiddleware::handle_response(Response &response) {
     string description = statusDescription(status_code);
     if (status_code >= 400) {
         let error = Error{status_code, description};
-        return MiddlewareResponse{ftl::constructor<Argo::Error>(), error};
+        return break_response_chain(error);
     } else {
         let comp = make_shared<StringComponent>(description);
         response.components.insert({"statusCodeDescription", comp});
-        return MiddlewareResponse{ftl::constructor<Argo::Response>(), response};
+        return follow_chain(response);
     }
 }
 

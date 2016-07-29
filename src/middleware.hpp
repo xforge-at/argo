@@ -1,7 +1,7 @@
 #import "generated/error.hpp"
 #import "generated/request.hpp"
-#import "response.hpp"
 #import "http_client.hpp"
+#import "response.hpp"
 #import <ftl/sum_type.h>
 #import <functional>
 #import <memory>
@@ -25,6 +25,11 @@ class HTTPMiddleware {
     HTTPMiddleware();
 
     unique_ptr<HTTPMiddleware> next;
+    MiddlewareRequest follow_chain(Request &request);
+    MiddlewareResponse follow_chain(Response &response);
+
+    MiddlewareRequest break_request_chain(const Error &error);
+    MiddlewareResponse break_response_chain(const Error &error);
 
     MiddlewareRequest operator()(Request &request);
     MiddlewareResponse operator()(Response &response);

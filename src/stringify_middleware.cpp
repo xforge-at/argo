@@ -7,5 +7,5 @@ MiddlewareResponse StringifyMiddleware::handle_response(Response &response) {
         let comp = make_shared<StringComponent>(bodyString);
         response.components.insert({"bodyString", comp});
     }
-    return MiddlewareResponse{ftl::constructor<Argo::Response>(), response};
+    return this->follow_chain(response);
 }
