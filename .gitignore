@@ -334,3 +334,5 @@ obj/
 .ycm_extra_conf.py
 compile_commands.json
 /Argo.yaml
+
+test-reports/
