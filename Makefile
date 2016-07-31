@@ -41,6 +41,7 @@ compile_commands.json: ios
 	make -C ./test/build/ > /dev/null
 
 build_tests: ./test/build/out/Debug/test
+	chmod +x ./test/build/gyp-mac-tool
 
 test: Argo.yaml ./test/build/out/Debug/test
 	./test/build/out/Debug/test 
