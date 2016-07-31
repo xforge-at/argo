@@ -287,12 +287,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 321404701D242AB800142DD9 /* Build configuration list for PBXNativeTarget "ArgoLibTests" */;
 			buildPhases = (
-				D580F36EAA2836E34081083D /* [CP] Check Pods Manifest.lock */,
 				321404551D242AB800142DD9 /* Sources */,
 				321404561D242AB800142DD9 /* Frameworks */,
 				321404571D242AB800142DD9 /* Resources */,
-				DE6C4499215CBC228B4FC428 /* [CP] Embed Pods Frameworks */,
-				A9660437D563B1B6A42852C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,54 +432,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A9660437D563B1B6A42852C5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D580F36EAA2836E34081083D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DE6C4499215CBC228B4FC428 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		321404551D242AB800142DD9 /* Sources */ = {
