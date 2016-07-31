@@ -38,10 +38,10 @@ compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -project ./ios/ArgoLib.xcodeproj -scheme Argo -sdk iphonesimulator -jobs 8
 
 ./test/build/out/Debug/test: test/build/Makefile
+	chmod +x ./test/build/gyp-mac-tool
 	make -C ./test/build/ > /dev/null
 
 build_tests: ./test/build/out/Debug/test
-	chmod +x ./test/build/gyp-mac-tool
 
 test: Argo.yaml ./test/build/out/Debug/test
 	./test/build/out/Debug/test 
