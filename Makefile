@@ -3,7 +3,7 @@ TEST_FILES := $(shell python glob.py test "*.cpp")
 DJINNI_FILES := $(shell find records -name "*.djinni")
 GYP_FILES := $(shell find . -name "*.gyp" -or -name "*.gypi" -maxdepth 2)
 
-all: ios android test
+all: ios android test/build/Makefile
 
 clean:
 	-xcodebuild -project ios/ArgoLib.xcodeproj -scheme Argo clean
@@ -25,7 +25,10 @@ ios/build/libArgo.xcodeproj: Argo.yaml $(SRC_FILES) $(GYP_FILES)
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -DOS=ios --depth=. -f xcode --generator-output=./ios/build/ --root-target=libArgo_objc -Icommon.gypi
 
 GypAndroid.mk: Argo.yaml $(SRC_FILES) $(GYP_FILES)
-	ANDROID_BUILD_TOP=$(shell which ndk-build) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
+	ANDROID_BUILD_TOP=$(ANDROID_NDK) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
+
+test/build/Makefile: $(SRC_FILES) $(TEST_FILES)
+	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi &> /dev/null
 
 ios: ios/build/libArgo.xcodeproj 
 
@@ -34,10 +37,14 @@ android: GypAndroid.mk
 compile_commands.json: ios
 	xctool build -dry-run -reporter json-compilation-database:compile_commands.json -project ./ios/ArgoLib.xcodeproj -scheme Argo -sdk iphonesimulator -jobs 8
 
-test: $(TEST_FILES) $(SRC_FILES) Argo.yaml 
-	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi &> /dev/null
+./test/build/out/Debug/test: test/build/Makefile
+	chmod +x ./test/build/gyp-mac-tool
 	make -C ./test/build/ > /dev/null
-	./test/build/out/Debug/test
+
+build_tests: ./test/build/out/Debug/test
+
+test: Argo.yaml ./test/build/out/Debug/test
+	./test/build/out/Debug/test 
 
 print_vars:
 	@echo "src: " $(SRC_FILES)
@@ -45,4 +52,4 @@ print_vars:
 	@echo "gyp: " $(GYP_FILES)
 	@echo "djinni: " $(DJINNI_FILES)
 
-.PHONY: ios android clean all test
+.PHONY: ios android clean all test build_tests print_vars 

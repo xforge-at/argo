@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3214045E1D242AB800142DD9 /* ArgoLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214045D1D242AB800142DD9 /* ArgoLibTests.swift */; };
+		3272E2261D4E83F700142DD9 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272E2251D4E83F700142DD9 /* FileManagerTests.swift */; };
+		3272E2271D4E842C00142DD9 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A2B1D32A08300142DD9 /* Argo.framework */; };
 		32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A2D1D32A08300142DD9 /* Argo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32ED5A3C1D32A11400142DD9 /* libArgo_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A391D32A11400142DD9 /* libArgo_objc.a */; };
 		32ED5A3D1D32A11400142DD9 /* libArgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A3A1D32A11400142DD9 /* libArgo.a */; };
@@ -100,11 +101,11 @@
 /* Begin PBXFileReference section */
 		321404541D242AB800142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ArgoApp/Info.plist; sourceTree = "<group>"; };
 		321404591D242AB800142DD9 /* ArgoLib.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgoLib.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3214045D1D242AB800142DD9 /* ArgoLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgoLibTests.swift; sourceTree = "<group>"; };
 		3214045F1D242AB800142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3269D0971D24621500142DD9 /* libdjinni_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdjinni_objc.a; path = "../dependencies/djinni/support-lib/build/Debug-iphoneos/libdjinni_objc.a"; sourceTree = "<group>"; };
 		3269D0981D24621500142DD9 /* libArgo_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArgo_objc.a; path = "../build/Debug-iphoneos/libArgo_objc.a"; sourceTree = "<group>"; };
 		3269D0991D24621500142DD9 /* libArgo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArgo.a; path = "../build/Debug-iphoneos/libArgo.a"; sourceTree = "<group>"; };
+		3272E2251D4E83F700142DD9 /* FileManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTests.swift; sourceTree = "<group>"; };
 		32ED5A2B1D32A08300142DD9 /* Argo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32ED5A2D1D32A08300142DD9 /* Argo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Argo.h; sourceTree = "<group>"; };
 		32ED5A2F1D32A08300142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3272E2271D4E842C00142DD9 /* Argo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +188,7 @@
 		3214045C1D242AB800142DD9 /* ArgoLibTests */ = {
 			isa = PBXGroup;
 			children = (
-				3214045D1D242AB800142DD9 /* ArgoLibTests.swift */,
+				3272E2251D4E83F700142DD9 /* FileManagerTests.swift */,
 				3214045F1D242AB800142DD9 /* Info.plist */,
 			);
 			name = ArgoLibTests;
@@ -287,12 +289,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 321404701D242AB800142DD9 /* Build configuration list for PBXNativeTarget "ArgoLibTests" */;
 			buildPhases = (
-				D580F36EAA2836E34081083D /* [CP] Check Pods Manifest.lock */,
 				321404551D242AB800142DD9 /* Sources */,
 				321404561D242AB800142DD9 /* Frameworks */,
 				321404571D242AB800142DD9 /* Resources */,
-				DE6C4499215CBC228B4FC428 /* [CP] Embed Pods Frameworks */,
-				A9660437D563B1B6A42852C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,7 +336,6 @@
 				TargetAttributes = {
 					321404581D242AB800142DD9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 321404441D242AB800142DD9;
 					};
 					32ED5A2A1D32A08300142DD9 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -436,60 +434,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A9660437D563B1B6A42852C5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D580F36EAA2836E34081083D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DE6C4499215CBC228B4FC428 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArgoLibTests/Pods-ArgoLibTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		321404551D242AB800142DD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3214045E1D242AB800142DD9 /* ArgoLibTests.swift in Sources */,
+				3272E2261D4E83F700142DD9 /* FileManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +571,6 @@
 		321404711D242AB800142DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				HEADER_SEARCH_PATHS = (
 					generated,
 					"$(inherited)",
@@ -630,14 +579,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.xforge.argoENTIFIER.ArgoAppTests;
 				PRODUCT_NAME = ArgoLib;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArgoLib.app/ArgoLib";
 			};
 			name = Debug;
 		};
 		321404721D242AB800142DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				HEADER_SEARCH_PATHS = (
 					generated,
 					"$(inherited)",
@@ -646,7 +593,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.xforge.argoENTIFIER.ArgoAppTests;
 				PRODUCT_NAME = ArgoLib;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArgoLib.app/ArgoLib";
 			};
 			name = Release;
 		};
