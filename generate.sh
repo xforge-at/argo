@@ -23,12 +23,14 @@ YAML_FILE=Argo.yaml
    --cpp-nn-header '"util.hpp"' \
    --cpp-nn-type "nn_shared_ptr" \
    --cpp-nn-check-expression "make_not_null" \
+   --cpp-extended-record-include-prefix "extended/" \
    \
    --jni-out $JNI_OUT \
    --jni-include-cpp-prefix "generated/" \
    \
    --objc-out $OBJC_OUT \
    --objc-type-prefix "XF" \
+   --objc-extended-record-include-prefix "extended/" \
    \
    --objcpp-out $OBJC_OUT \
    --objcpp-include-cpp-prefix "generated/" \
