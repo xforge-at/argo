@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:dropbox/djinni.git
+	branch = master
+	commit = d7877cacf3441084073bcdf54b489769eef7c852
+	parent = 187ba476b824177e3c88a29937de375c6301963b
+	cmdver = 0.3.0
