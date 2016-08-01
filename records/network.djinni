@@ -5,7 +5,7 @@ request = record {
     body : optional<binary>;
 }
 
-response = record {
+response = record +c {
     request : request;
     status_code : i32;
     header : map<string,string>;
