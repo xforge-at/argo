@@ -11,17 +11,22 @@ import djinni.MainThreadDispatchQueueHelper
  * When an item becomes available, it is posted to the JVM's main thread
  */
 class DispatchHelperRunnable(val queueHelper: MainThreadDispatchQueueHelper) : Runnable {
+
+    fun tick(queueHelper: MainThreadDispatchQueueHelper, handler: Handler) {
+        // Timeout for one frame per 60fps
+        // So we leave enough time for others to run in between
+        val timeout = 1000/60;
+        if (queueHelper.waitForItems(timeout * 1000)) {
+            handler.post {
+                queueHelper.drainQueue()
+            }
+        }
+    }
+
     override fun run() {
         val mainHandler = Handler(Looper.getMainLooper())
         while (true) {
-            // Timeout for one frame per 60fps
-            // So we leave enough time for others to run in between
-            val timeout = 1000/60;
-            if (queueHelper.waitForItems(timeout * 1000)) {
-                mainHandler.post {
-                    queueHelper.drainQueue()
-                }
-            }
+            tick(queueHelper, mainHandler)
         }
     }
 }
