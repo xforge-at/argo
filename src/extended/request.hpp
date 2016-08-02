@@ -22,5 +22,7 @@ namespace Argo {
         Request(Request &&) = default;
         Request &operator=(const Request &) = default;
         Request &operator=(Request &&) = default;
+
+        void add_header(string key, string value);
     };
 }
