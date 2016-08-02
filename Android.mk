@@ -17,7 +17,7 @@ LOCAL_LDLIBS += -latomic
 LOCAL_MODULE    := Argo_android
 LOCAL_WHOLE_STATIC_LIBRARIES := blocksruntime \
 			libpthread_workqueue \
-			dependencies_argo_dependencies_leveldb_gyp \
+			dependencies_leveldb_gyp \
 			dependencies_json11_gyp \
 			libkqueue \
 			libdispatch \

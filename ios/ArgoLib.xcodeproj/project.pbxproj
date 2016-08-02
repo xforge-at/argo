@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3229FA351D508DFA00142DD9 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32ED5A2B1D32A08300142DD9 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3272E2261D4E83F700142DD9 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272E2251D4E83F700142DD9 /* FileManagerTests.swift */; };
 		3272E2271D4E842C00142DD9 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED5A2B1D32A08300142DD9 /* Argo.framework */; };
 		32ED5A2E1D32A08300142DD9 /* Argo.h in Headers */ = {isa = PBXBuildFile; fileRef = 32ED5A2D1D32A08300142DD9 /* Argo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,6 +98,19 @@
 			remoteInfo = leveldb;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3229FA331D508DEA00142DD9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3229FA351D508DFA00142DD9 /* Argo.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		321404541D242AB800142DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ArgoApp/Info.plist; sourceTree = "<group>"; };
@@ -292,6 +306,7 @@
 				321404551D242AB800142DD9 /* Sources */,
 				321404561D242AB800142DD9 /* Frameworks */,
 				321404571D242AB800142DD9 /* Resources */,
+				3229FA331D508DEA00142DD9 /* CopyFiles */,
 			);
 			buildRules = (
 			);

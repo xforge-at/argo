@@ -112,6 +112,17 @@
                 '-pthread'
             ]
         }]
+      , ['OS == "android"', {
+            'defines': [
+                'OS_ANDROID=1'
+            ]
+          , 'libraries': [
+               '-lpthread'
+            ]
+          , 'ccflags': [
+                '-pthread'
+            ]
+        }]
       , ['OS == "ios" or OS=="mac"', {
             'defines': [
                 'OS_MACOSX=1'
