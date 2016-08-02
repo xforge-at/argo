@@ -27,7 +27,7 @@ ios/build/libArgo.xcodeproj: Argo.yaml $(SRC_FILES) $(GYP_FILES)
 GypAndroid.mk: Argo.yaml $(SRC_FILES) $(GYP_FILES)
 	ANDROID_BUILD_TOP=$(ANDROID_NDK) PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp --depth=. -f android -DOS=android -Icommon.gypi --root-target=libArgo_android_static libArgo.gyp 
 
-test/build/Makefile: $(SRC_FILES) $(TEST_FILES)
+test/build/Makefile: Argo.yaml $(SRC_FILES) $(TEST_FILES)
 	PYTHONPATH=dependencies/gyp/pylib dependencies/gyp/gyp libArgo.gyp -f make -D OS=mac --depth=. --generator-output=./test//build/ --root-target=test -Icommon.gypi &> /dev/null
 
 ios: ios/build/libArgo.xcodeproj 
