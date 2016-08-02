@@ -1,4 +1,4 @@
-request = record {
+request = record +c {
     method : string;
     url : string;
     header : optional<map<string,string>>;

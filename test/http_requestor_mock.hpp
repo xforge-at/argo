@@ -1,6 +1,6 @@
+#import "extended/request.hpp"
 #import "extended/response.hpp"
 #import "generated/error.hpp"
-#import "generated/request.hpp"
 #import "http_requestor.hpp"
 #import "http_requestor_callback.hpp"
 #import "util.hpp"

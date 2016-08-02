@@ -1,6 +1,6 @@
+#import "extended/request.hpp"
 #import "extended/response.hpp"
 #import "generated/error.hpp"
-#import "generated/request.hpp"
 #import "http_client.hpp"
 #import <ftl/sum_type.h>
 #import <functional>

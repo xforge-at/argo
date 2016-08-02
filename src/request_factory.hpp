@@ -1,4 +1,4 @@
-#import "generated/request.hpp"
+#import "extended/request.hpp"
 #import "http_method.hpp"
 #import "util.hpp"
 #import <json11/json11.hpp>
