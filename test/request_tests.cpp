@@ -108,7 +108,7 @@ TEST(RequestTests, AppendHeaderAppendsToExistingHeader) {
     let m = unordered_map<string, string>{stuff};
     Request req{"GET", "www.test.at", make_optional(m), nullopt};
 
-    req.append_to_header(header_key, "application/xml");
+    req.append_to_header("Accept", "application/xml");
 
     ASSERT_TRUE(req.header) << "New headers should have been created";
     let headerinos = *req.header;
