@@ -20,6 +20,6 @@ MiddlewareResponse JsonifyMiddleware::handle_response(Response &response) {
 }
 
 MiddlewareRequest JsonifyMiddleware::handle_request(Request &request) {
-    request.add_header("accept-encoding", "application/json");
+    request.append_to_header("accept", "application/json");
     return follow_chain(request);
 }
