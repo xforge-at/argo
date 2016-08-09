@@ -22,7 +22,13 @@ namespace Argo {
         Request &operator=(Request &&) = default;
 
         // Extended methods:
+
         using ComponentContainer::get_component;
+        /// Replace the header with 'key' if it exists
         void add_header(string key, string value);
+        /// If the header with 'key' exists, append the value to the value list
+        void append_to_header(string key, string value);
+        /// Normalizes key before lookup
+        optional<string> get_header(string key);
     };
 }
