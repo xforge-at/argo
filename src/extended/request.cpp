@@ -4,13 +4,13 @@
 
 using std::transform;
 
-string normalize_key(string key) {
+string normalize_key(const string &key) {
     var normalized_key = string{key};
     transform(key.begin(), key.end(), normalized_key.begin(), ::tolower);
     return normalized_key;
 }
 
-void Argo::Request::add_header(string key, string value) {
+void Argo::Request::add_header(const string &key, const string &value) {
     let h = this->header;
     let normalized_key = normalize_key(key);
 
@@ -18,15 +18,15 @@ void Argo::Request::add_header(string key, string value) {
         var header = *h;
         // Erase the old header before (if one exists)
         header.erase(normalized_key);
-        header.insert({normalized_key, value});
+        header.insert({normalized_key, string{value}});
         this->header = header;
     } else {
-        unordered_map<string, string> header{{normalized_key, value}};
+        unordered_map<string, string> header{{normalized_key, string{value}}};
         this->header = make_optional(header);
     }
 }
 
-optional<string> Argo::Request::get_header(string key) {
+optional<string> Argo::Request::get_header(const string &key) const {
     let h = this->header;
     if (!h) {
         return nullopt;
@@ -42,7 +42,7 @@ optional<string> Argo::Request::get_header(string key) {
     return make_optional(result->second);
 }
 
-void Argo::Request::append_to_header(string key, string value) {
+void Argo::Request::append_to_header(const string &key, const string &value) {
     let result = get_header(key);
     if (!result) {
         add_header(key, value);
