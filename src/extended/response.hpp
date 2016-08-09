@@ -12,7 +12,6 @@
 
 namespace Argo {
     struct Response : public ResponseBase, public ComponentContainer {
-        using ComponentContainer::get_component;
 
         Response(Request request_, int32_t status_code_, std::unordered_map<std::string, std::string> header_, std::experimental::optional<std::vector<uint8_t>> body_)
             : ResponseBase(request_, status_code_, header_, body_) {}
@@ -23,5 +22,8 @@ namespace Argo {
         Response(Response &&) = default;
         Response &operator=(const Response &) = default;
         Response &operator=(Response &&) = default;
+
+        // Extended methods:
+        using ComponentContainer::get_component;
     };
 }

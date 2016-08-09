@@ -12,8 +12,6 @@
 
 namespace Argo {
     struct Request : public RequestBase, public ComponentContainer {
-        using ComponentContainer::get_component;
-
         Request(string method_, string url_, optional<unordered_map<string, string>> header_, optional<vector<uint8_t>> body_) : RequestBase(method_, url_, header_, body_) {}
 
         virtual ~Request() = default;
@@ -23,6 +21,8 @@ namespace Argo {
         Request &operator=(const Request &) = default;
         Request &operator=(Request &&) = default;
 
+        // Extended methods:
+        using ComponentContainer::get_component;
         void add_header(string key, string value);
     };
 }
