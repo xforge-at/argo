@@ -15,7 +15,11 @@ using tree_value = ftl::sum_type<dict_value, dict_array>;
 struct tree_node;
 
 struct tree_node_comparator {
+	using is_transparent = std::true_type;
 	bool operator()(const tree_node &lhs, const tree_node &rhs) const;
+	bool operator()(const string &key, const tree_node &rhs) const;
+	bool operator()(const tree_node &lhs, const string &key) const;
+	bool compare(const string &lhs, const string &rhs) const;
 };
 
 class dictionary_adapter {};
@@ -25,17 +29,25 @@ class dictionary {
 	friend class dictionary_adapter;
 
   public:
-	struct array {};
 	/// Constructs an empty dictionary
 	dictionary();
 
 	/// Construct a dictionary from a single tree node
-	dictionary(tree_node node);
+	dictionary(tree_node &node);
 
 	/// Construct a dictionary with a list of tree nodes, e.g. { {"key1", "value"}, {"key2", 5}, ... }
 	dictionary(std::initializer_list<tree_node> ilist);
 
-	~dictionary();
+	/// Merge the contents of the dictionaries, "this" taking precedence over "other"
+	void merge(const dictionary &other);
+
+	/// Merge the contents of the dictionaries, "this" taking precedence, but produce a new dict
+	dictionary merge(const dictionary &other) const;
+
+	/// Number of elements in the dictionary
+	size_t count() const;
+
+	bool operator==(const dictionary &rhs) const;
 
 	/// Returns the value from the dictionary with the specified type and key pair
 	/// Or nullptr if the object does not exist (or has the wrong type)
@@ -44,20 +56,12 @@ class dictionary {
 	/// Must be one of the types compatible with tree_value
 	template <typename T> void put(const string &key, T &value);
 
-	/// Merge the contents of the dictionaries, "this" taking precedence over "other"
-	void merge(const dictionary &other);
-
-	/// Merge the contents of the dictionaries, "this" taking precedence, but produce a new dict
-	dictionary merge(const dictionary &other) const;
-
   private:
 	// Uses a custom comparator to only test for the presence of the keys
 	set<tree_node, tree_node_comparator> _storage;
 
 	void insert(tree_node &node);
 };
-
-bool operator==(const dictionary &lhs, const dictionary &rhs);
 
 struct tree_node {
 	string key;
