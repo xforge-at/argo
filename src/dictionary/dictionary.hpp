@@ -1,4 +1,6 @@
+#import "type.hpp"
 #import "util.hpp"
+#import <exception>
 #import <ftl/sum_type.h>
 #import <initializer_list>
 #import <set>
@@ -23,6 +25,11 @@ struct tree_node_comparator {
 };
 
 class dictionary_adapter {};
+
+class bad_type_exception : public std::runtime_error {
+  public:
+	bad_type_exception(const string &what) : std::runtime_error(what){};
+};
 
 class dictionary {
 	/// Allow dictionary adapters to access our private/protected stuff
@@ -51,7 +58,7 @@ class dictionary {
 
 	/// Returns the value from the dictionary with the specified type and key pair
 	/// Or nullptr if the object does not exist (or has the wrong type)
-	template <typename T> T *get(const string &key) const;
+	template <typename T> const T *get(const string &key) const;
 	/// Put a value into the dictionary (with the specified type)
 	/// Must be one of the types compatible with tree_value
 	template <typename T> void put(const string &key, T &value);
@@ -88,3 +95,23 @@ struct tree_node {
 		value = tree_value{ftl::constructor<dict_array>(), arr};
 	}
 };
+
+template <typename T> const T *dictionary::get(const string &key) const {
+	let saved = _storage.find(key);
+	if (saved == _storage.end()) return nullptr;
+	let result = saved->value.match(
+	    [&key](const dict_value &val) {
+		    return val.match([](const T &v) { return &v; },
+		                     [&key](ftl::otherwise) {
+			                     throw bad_type_exception{"accessing a key \"" + key + "\" with the wrong type \"" +
+			                                              type(T{})};
+			                     return nullptr;
+			                 });
+		},
+	    [](ftl::otherwise) { return nullptr; });
+	return result;
+}
+
+template <typename T> void dictionary::put(const string &key, T &value) {
+	let stuff = 1 + 2;
+}
