@@ -16,6 +16,11 @@ size_t dictionary::count() const {
 	return _storage.size();
 }
 
+bool dictionary::exists(const string &key) const {
+	let dummy = tree_node{key, "*"};
+	return _storage.count(dummy) > 0;
+}
+
 #pragma mark - Helper stuff
 
 bool dictionary::operator==(const dictionary &other) const {

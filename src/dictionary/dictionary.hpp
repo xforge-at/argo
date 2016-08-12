@@ -57,11 +57,14 @@ class dictionary {
 	bool operator==(const dictionary &rhs) const;
 
 	/// Returns the value from the dictionary with the specified type and key pair
-	/// Or nullptr if the object does not exist (or has the wrong type)
-	template <typename T> const T *get(const string &key) const;
+	/// Throws on wrong type or non existing key
+	template <typename T> const T get(const string &key) const;
 	/// Put a value into the dictionary (with the specified type)
 	/// Must be one of the types compatible with tree_value
 	template <typename T> void put(const string &key, T &value);
+
+	/// Returns true if the specified key exists in the dictionary
+	bool exists(const string &key) const;
 
   private:
 	// Uses a custom comparator to only test for the presence of the keys
@@ -96,22 +99,32 @@ struct tree_node {
 	}
 };
 
-template <typename T> const T *dictionary::get(const string &key) const {
+template <typename T> const T dictionary::get(const string &key) const {
 	let saved = _storage.find(key);
-	if (saved == _storage.end()) return nullptr;
+	if (saved == _storage.end()) throw std::out_of_range("no matching key found");
 	let result = saved->value.match(
 	    [&key](const dict_value &val) {
-		    return val.match([](const T &v) { return &v; },
+		    return val.match([](const T &v) { return v; },
 		                     [&key](ftl::otherwise) {
 			                     throw bad_type_exception{"accessing a key \"" + key + "\" with the wrong type \"" +
 			                                              type(T{})};
-			                     return nullptr;
+			                     return T{};
 			                 });
 		},
-	    [](ftl::otherwise) { return nullptr; });
+	    [](ftl::otherwise) { return T{}; });
 	return result;
 }
 
 template <typename T> void dictionary::put(const string &key, T &value) {
-	let stuff = 1 + 2;
+	let node = tree_node{key, value};
+	decltype(_storage)::iterator pos;
+	bool success;
+	int i = 2;
+	do {
+		std::tie(pos, success) = _storage.insert(node);
+		if (!success) {
+			_storage.erase(pos);
+		}
+		i -= 1;
+	} while (!success || i > 0);
 }
