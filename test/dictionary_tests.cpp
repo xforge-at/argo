@@ -70,6 +70,50 @@ TEST(DictionaryTest, Equality) {
 	ASSERT_FALSE(dict1 == dict3) << "Two dictionaries with different contents should not be equal";
 }
 
+TEST(DictionaryTest, EqualityLargeDict) {
+	let x = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 22},
+	                   {"awesome", true},
+	                   {"stuff", {1, 2, 3, 4, 5}},
+	                   {"other_dict", dictionary{{"nested_key", 5}, {"nested_array", {0, 2, 4, 6, 8}}}}};
+
+
+	let a = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 22},
+	                   {"awesome", true},
+	                   {"stuff", {1, 2, 3, 4, 5}},
+	                   {"other_dict", dictionary{{"nested_key", 5}, {"nested_array", {0, 2, 4, 6, 8}}}}};
+	ASSERT_EQ(x, a) << "Dictionaries with equal contents should be equal";
+
+	let b = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 22},
+	                   {"awesome", true},
+	                   {"stuff", {1, 2, 3, 4, 5}},
+	                   };
+	ASSERT_NE(x, b) << "Dictionaries with different size should not be equal";
+
+	let c = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 22},
+	                   {"awesome", true},
+	                   {"bllaaaa", {1, 2, 3, 4, 5}},
+	                   {"other_dict", dictionary{{"nested_key", 5}, {"nested_array", {0, 2, 4, 6, 8}}}}};
+	ASSERT_NE(x, c) << "Dictionaries with different keys should not be equal";
+
+	let d = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 999999},
+	                   {"awesome", true},
+	                   {"stuff", {1, 2, 3, 4, 5}},
+	                   {"other_dict", dictionary{{"nested_key", 5}, {"nested_array", {0, 2, 4, 6, 8}}}}};
+	ASSERT_NE(x, d) << "Dictionaries with different values dictionary should not be equal";
+
+	let e = dictionary{{"name", "Manu Wallner"},
+	                   {"age", 22},
+	                   {"awesome", true},
+	                   {"stuff", {1, 2, 3, 4, 5}},
+	                   {"other_dict", dictionary{{"nested_key", 5}, {"nested_array", "not equal"}}}};
+	ASSERT_NE(x, e) << "Dictionaries with different sub dictionary should not be equal";
+}
+
 TEST(DictionaryTest, InitializationWithList) {
 	let x = dictionary{{"name", "Manu Wallner"},
 	                   {"age", 22},
@@ -86,7 +130,8 @@ TEST(DictionaryTest, InitializationWithList) {
 	vector<int> v{1, 2, 3, 4, 5};
 	ASSERT_EQ(x.get<vector<int>>("stuff"), v);
 
-	// TODO: Test equality of nested dict here
+	dictionary d{{"nested_key", 5}, {"nested_array", {0, 2, 4, 6, 8}}};
+	ASSERT_EQ(x.get<dictionary>("other_dict"), d);
 }
 
 TEST(DictionaryTest, MergingIntoSingleValue) {
