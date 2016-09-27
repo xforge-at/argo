@@ -98,9 +98,7 @@ struct tree_node {
     : key(_key), value(ftl::constructor<dict_array>(), dict_array{ftl::constructor<vector<T>>(), values}) {}
     
     bool operator==(const tree_node &other) const {
-        if (this->key != other.key) return false;
-        if (this->value != other.value) return false;
-        return true;
+        return (this->key == other.key) && (this->value == other.value);
     }
 };
 
