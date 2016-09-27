@@ -62,7 +62,7 @@ TEST(DictionaryTest, Equality) {
 	string key = "key", value = "value";
 	tree_node node1{key, value};
 	tree_node node2{key, value};
-	tree_node node3{key, "bla"};
+	tree_node node3{key, 5};
 
 	dictionary dict1{node1}, dict2{node2}, dict3{node3};
 

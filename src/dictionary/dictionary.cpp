@@ -24,7 +24,11 @@ bool dictionary::exists(const string &key) const {
 #pragma mark - Helper stuff
 
 bool dictionary::operator==(const dictionary &other) const {
-	return this->count() == other.count();
+    return this->_storage == other._storage;
+}
+
+bool dictionary::operator!=(const dictionary &other) const {
+    return !(*this == other);
 }
 
 bool tree_node_comparator::operator()(const tree_node &lhs, const tree_node &rhs) const {

@@ -55,6 +55,7 @@ class dictionary {
 	size_t count() const;
 
 	bool operator==(const dictionary &rhs) const;
+    bool operator!=(const dictionary &rhs) const;
 
 	/// Returns the value from the dictionary with the specified type and key pair
 	/// Throws on wrong type or non existing key
@@ -95,6 +96,12 @@ struct tree_node {
     template <typename T>
     tree_node(string _key, vector<T> values)
     : key(_key), value(ftl::constructor<dict_array>(), dict_array{ftl::constructor<vector<T>>(), values}) {}
+    
+    bool operator==(const tree_node &other) const {
+        if (this->key != other.key) return false;
+        if (this->value != other.value) return false;
+        return true;
+    }
 };
 
 template <typename T> const T dictionary::get(const string &key) const {
