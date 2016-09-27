@@ -8,10 +8,17 @@ dictionary::dictionary(tree_node &node) : _storage({node}) {}
 
 dictionary::dictionary() {}
 
-void dictionary::merge(const dictionary &other) {}
-dictionary dictionary::merge(const dictionary &other) const {
-	return dictionary{};
+void dictionary::merge(const dictionary &other) {
+    this->_storage.insert(other._storage.begin(), other._storage.end());
 }
+
+dictionary dictionary::merge(const dictionary &other) const {
+    dictionary new_dict{};
+    new_dict._storage.insert(this->_storage.begin(), this->_storage.end());
+    new_dict._storage.insert(other._storage.begin(), other._storage.end());
+    return new_dict;
+}
+
 size_t dictionary::count() const {
 	return _storage.size();
 }
