@@ -10,7 +10,7 @@ using std::set;
 class dictionary;
 
 using dict_value = ftl::sum_type<int, string, bool, double, dictionary>;
-using dict_array = vector<dict_value>;
+using dict_array = ftl::sum_type<vector<int>, vector<string>, vector<bool>, vector<double>, vector<dictionary>>;
 
 using tree_value = ftl::sum_type<dict_value, dict_array>;
 
@@ -90,13 +90,11 @@ struct tree_node {
 	/// Having an array with different element types also makes 0% sense
 	template <typename T>
 	tree_node(string _key, std::initializer_list<T> values)
-	    : key(_key), value(ftl::constructor<dict_value>(), dict_value{ftl::constructor<int>(), 0}) {
-		dict_array arr;
-		for (auto val : values) {
-			arr.push_back(dict_value{ftl::constructor<T>(), val});
-		}
-		value = tree_value{ftl::constructor<dict_array>(), arr};
-	}
+	    : key(_key), value(ftl::constructor<dict_array>(), dict_array{ftl::constructor<vector<T>>(), values}) {}
+    
+    template <typename T>
+    tree_node(string _key, vector<T> values)
+    : key(_key), value(ftl::constructor<dict_array>(), dict_array{ftl::constructor<vector<T>>(), values}) {}
 };
 
 template <typename T> const T dictionary::get(const string &key) const {
@@ -111,6 +109,14 @@ template <typename T> const T dictionary::get(const string &key) const {
 			                     return T{};
 			                 });
 		},
+        [](const dict_array &val) {
+            return val.match([](const T &v) { return v; },
+                             [](ftl::otherwise) {
+                                 throw bad_type_exception{"accessing vector with the wrong type \"" +
+                                     type(T{})};
+                                 return T{};
+                             });
+        },
 	    [](ftl::otherwise) { return T{}; });
 	return result;
 }

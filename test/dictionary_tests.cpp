@@ -12,12 +12,12 @@ TEST(DictionaryTest, GettingValues) {
 }
 
 TEST(DictionaryTest, GettingArrays) {
-	/* vector<string> value{"hello", "world"}; */
-	/* tree_node node{"key", value}; */
-	/* let dict = dictionary{node}; */
+	vector<string> value{"hello", "world"};
+	tree_node node{"key", value};
+	let dict = dictionary{node};
 
-	/* let result = dict.get<vector<string>>(node.key); */
-	/* ASSERT_EQ(result, value); */
+	let result = dict.get<vector<string>>(node.key);
+	ASSERT_EQ(result, value);
 }
 
 TEST(DictionaryTest, PuttingValues) {
@@ -47,15 +47,15 @@ TEST(DictionaryTest, PuttingValuesOverwritesOldValues) {
 }
 
 TEST(DictionaryTest, PuttingArrays) {
-	/* string key = "test"; */
-	/* string value = "test_val"; */
-	/* var d = dictionary{}; */
+	string key = "test";
+	vector<string> value{"hello", "world"};
+	var d = dictionary{};
 
-	/* d.put(key, value); */
+	d.put(key, value);
 
-	/* let result = d.get<string>(key); */
-	/* ASSERT_EQ(d.count(), 1) << "There should be exactly one element in the dictionary"; */
-	/* ASSERT_EQ(result, value); */
+	let result = d.get<vector<string>>(key);
+	ASSERT_EQ(d.count(), 1) << "There should be exactly one element in the dictionary";
+	ASSERT_EQ(result, value);
 }
 
 TEST(DictionaryTest, Equality) {
@@ -84,7 +84,7 @@ TEST(DictionaryTest, InitializationWithList) {
 	ASSERT_EQ(x.get<bool>("awesome"), true);
 
 	vector<int> v{1, 2, 3, 4, 5};
-	/* ASSERT_EQ(*x.get<vector<int>>("stuff"), v); */
+	ASSERT_EQ(x.get<vector<int>>("stuff"), v);
 
 	// TODO: Test equality of nested dict here
 }
