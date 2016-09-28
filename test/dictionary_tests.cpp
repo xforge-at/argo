@@ -171,3 +171,16 @@ TEST(DictionaryTest, MergingIntoOtherDict) {
 	ASSERT_EQ(key2_value, value2);
 	ASSERT_EQ(key_value, value);
 }
+
+TEST(DictionaryTest, OutOfRange) {
+	dictionary d{{"first", 1}, {"second", 2}};
+	ASSERT_THROW(d.get<int>("xxx"), std::out_of_range);
+}
+
+TEST(DictionaryTest, BadType) {
+	dictionary d{{"first", 1}, {"second", {1, 2, 3}}};
+
+	ASSERT_THROW(d.get<string>("first"), bad_type_exception);
+
+	ASSERT_THROW(d.get<vector<string>>("second"), bad_type_exception);
+}
