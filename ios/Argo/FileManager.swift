@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class FileManager: NSObject, XFFileManager {
-	public func keyValueStorePath() -> String {
-		let paths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
+open class FileManager: NSObject, XFFileManager {
+	open func keyValueStorePath() -> String {
+		let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
 		guard let path = paths.first else { return "" }
 		return path
 	}

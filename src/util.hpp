@@ -51,5 +51,5 @@ template <typename T> using nn_shared_ptr = not_null<shared_ptr<T>>;
 
 // Glorious C++14 return type deduction
 template <typename T> inline decltype(auto) make_not_null(T x) {
-    return not_null<T>(x);
+	return not_null<T>(x);
 }
