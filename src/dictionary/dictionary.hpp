@@ -9,7 +9,7 @@ using std::set;
 
 class dictionary;
 
-using dict_value = ftl::sum_type<int, string, bool, double, dictionary, std::nullptr_t>;
+using dict_value = ftl::sum_type<int, string, bool, double, dictionary>;
 using dict_array = ftl::sum_type<vector<int>, vector<string>, vector<bool>, vector<double>, vector<dictionary>>;
 
 using tree_value = ftl::sum_type<dict_value, dict_array>;
