@@ -1,9 +1,9 @@
-language: cpp
+osx_image: xcode8
+language: objective-c
 install: 
   - bundle install
   - brew bundle
   - make all
 compiler: clang
-osx_image: xcode8
 script:
   - make test
