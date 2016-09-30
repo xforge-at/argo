@@ -88,3 +88,23 @@ TEST(JsonifyMiddlewareTest, NoComponent) {
     optional<Json> newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
     ASSERT_FALSE(newJsonObj);
 }
+
+TEST(JsonifyMiddlewareTest, SetsJsonBodyForRequest) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+
+    Json jsonObj = Json::object{
+        {"key1", "value1"}, {"key2", false}, {"key3", Json::array{1, 2, 3}}, {"key4", 996.8},
+    };
+
+    let comp = make_shared<JsonComponent>(jsonObj);
+    req.components.insert({"bodyJson", comp});
+
+    JsonifyMiddleware sm;
+    MiddlewareRequest mrs = sm.handle_request(req);
+
+    const Request *requestJM = mrs.match([](const Request &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(requestJM);
+    let v = *(requestJM->body);
+    string bodyString{v.begin(), v.end()};
+    ASSERT_EQ(jsonObj.dump(), bodyString);
+}

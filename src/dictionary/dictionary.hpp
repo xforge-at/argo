@@ -28,7 +28,7 @@ class dictionary_adapter {};
 
 class bad_type_exception : public std::runtime_error {
   public:
-	bad_type_exception(const string &what) : std::runtime_error(what){};
+	bad_type_exception(const string &what) : std::runtime_error(what){}
 };
 
 class dictionary {

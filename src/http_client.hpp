@@ -31,9 +31,21 @@ class HTTPClient {
     HTTPClient(nn_shared_ptr<HttpRequestor> requestor);
 
     void get(const string &url, success_block_t success, error_block_t error);
+    void get(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error);
+    
     void post(const string &url, success_block_t success, error_block_t error);
+    void post(const string &url, json11::Json &json, success_block_t success, error_block_t error);
+    void post(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error);
+    
+    
     void put(const string &url, success_block_t success, error_block_t error);
+    void put(const string &url, json11::Json &json, success_block_t success, error_block_t error);
+    void put(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error);
+    
     void patch(const string &url, success_block_t success, error_block_t error);
+    void patch(const string &url, json11::Json &json, success_block_t success, error_block_t error);
+    void patch(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error);
+    
     void deleterino_in_pastrami(const string &url, success_block_t success, error_block_t error);
 
     void use_middleware(unique_ptr<HTTPMiddleware> &middleware);
@@ -42,7 +54,7 @@ class HTTPClient {
     nn_shared_ptr<HttpRequestor> requestor;
     MiddlewareChain chain;
 
-    void send(HTTPMethod method, const string &url, success_block_t success, error_block_t error);
+    void send(HTTPMethod method, const string &url, optional<unordered_map<string, string>> parameters, optional<json11::Json> body, success_block_t success, error_block_t error);
 
     HTTPMiddleware *getFirstMiddleware();
 
