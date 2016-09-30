@@ -11,7 +11,7 @@ import Foundation
 open class HTTPRequestor: NSObject, XFHttpRequestor {
 
 	open func execute(_ request: XFRequest, callback: XFHttpRequestorCallback) {
-		let urlRequest = NSMutableURLRequest(url: URL(string: request.url)!)
+		var urlRequest = URLRequest(url: URL(string: request.url)!)
 		let session = URLSession.shared
 		urlRequest.httpMethod = request.method
 		urlRequest.httpBody = request.body
@@ -21,7 +21,7 @@ open class HTTPRequestor: NSObject, XFHttpRequestor {
 				urlRequest.addValue(v, forHTTPHeaderField: k)
 			}
 		}
-
+        
 		session.dataTask(with: urlRequest, completionHandler: { data, response, error -> Void in
 			if let error = error {
 				let e = XFError.init(code: 0, message: error.localizedDescription)
