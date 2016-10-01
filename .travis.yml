@@ -14,7 +14,7 @@ matrix:
       language: android
       env:
         BUILD_TARGET=android
-    - os: linux
+    - os: osx
       language: cpp
       compiler: clang
       env:
