@@ -28,7 +28,7 @@ MiddlewareRequest JsonifyMiddleware::handle_request(Request &request) {
     let jsonBody = request.get_component<JsonComponent>("bodyJson");
     
     if (jsonBody) {
-        let jsonString = (*jsonBody).dump();
+        let jsonString = jsonBody->dump();
         request.body = make_optional(stringToBinary(jsonString));
         request.add_header("Content-Type", "application/json");
     }
