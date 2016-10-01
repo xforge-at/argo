@@ -1,5 +1,4 @@
 install: 
-  - bundle install
   - ./install.sh
 script:
   - ./test.sh

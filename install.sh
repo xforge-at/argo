@@ -2,6 +2,7 @@
 
 case "$BUILD_TARGET" in 
    "ios")
+      bundle install
       make ios
       ;;
    "android")
