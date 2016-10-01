@@ -14,7 +14,7 @@ matrix:
     - os: linux
       env:
         BUILD_TARGET=android
-        ANDROID_NDK=/opt/android-ndk
+        ANDROID_NDK=/home/travis/android-ndk
     - os: osx
       compiler: clang
       env:
