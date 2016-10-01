@@ -13,6 +13,7 @@ matrix:
     - os: linux
       env:
         BUILD_TARGET=android
+        ANDROID_NDK=/usr/local/opt/android-ndk
     - os: osx
       compiler: clang
       env:
