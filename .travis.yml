@@ -1,13 +1,13 @@
-language: objective-c
 install: 
   - bundle install
-  - make all
+  - ./install.sh
 script:
-  - test.sh
+  - ./test.sh
 sudo: false
 matrix:
   include:
     - os: osx
+      language: objective-c
       osx_image: xcode8
       env:
         BUILD_TARGET=ios
@@ -16,6 +16,7 @@ matrix:
       env:
         BUILD_TARGET=android
     - os: linux
+      language: cpp
       compiler: clang
       env:
         BUILD_TARGET=cpp
