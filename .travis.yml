@@ -4,6 +4,7 @@ script:
   - ./test.sh
 sudo: false
 language: cpp
+osx_image: xcode8
 matrix:
   fast_finish: true
   include:
