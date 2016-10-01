@@ -23,29 +23,29 @@ void HTTPClient::get(const string &url, unordered_map<string, string> parameters
 // POST
 
 void HTTPClient::post(const string &url, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, nullopt, nullopt, success, error);
+    this->send(HTTPMethod::POST, url, nullopt, nullopt, success, error);
 }
 
 void HTTPClient::post(const string &url, json11::Json &json, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, nullopt, json, success, error);
+    this->send(HTTPMethod::POST, url, nullopt, json, success, error);
 }
 
 void HTTPClient::post(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, parameters, nullopt, success, error);
+    this->send(HTTPMethod::POST, url, parameters, nullopt, success, error);
 }
 
 // PUT
 
 void HTTPClient::put(const string &url, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::POST, url, nullopt, nullopt, success, error);
+    this->send(HTTPMethod::PUT, url, nullopt, nullopt, success, error);
 }
 
 void HTTPClient::put(const string &url, json11::Json &json, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, nullopt, json, success, error);
+    this->send(HTTPMethod::PUT, url, nullopt, json, success, error);
 }
 
 void HTTPClient::put(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, parameters, nullopt, success, error);
+    this->send(HTTPMethod::PUT, url, parameters, nullopt, success, error);
 }
 
 // PATCH
@@ -55,11 +55,11 @@ void HTTPClient::patch(const string &url, success_block_t success, error_block_t
 }
 
 void HTTPClient::patch(const string &url, json11::Json &json, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, nullopt, json, success, error);
+    this->send(HTTPMethod::PATCH, url, nullopt, json, success, error);
 }
 
 void HTTPClient::patch(const string &url, unordered_map<string, string> parameters, success_block_t success, error_block_t error) {
-    this->send(HTTPMethod::GET, url, parameters, nullopt, success, error);
+    this->send(HTTPMethod::PATCH, url, parameters, nullopt, success, error);
 }
 
 // DELETE
