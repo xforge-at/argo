@@ -2,7 +2,18 @@ osx_image: xcode8
 language: objective-c
 install: 
   - bundle install
-  - make ios build_tests
+  - make all
 compiler: clang
 script:
-  - make test
+  - test.sh
+matrix:
+  include:
+    - os: osx
+      env:
+        BUILD_TARGET=ios
+    - os: linux
+      env:
+        BUILD_TARGET=android
+    - os: linux
+      env:
+        BUILD_TARGET=cpp
