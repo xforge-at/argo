@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/google/leveldb.git
 	branch = master
-	commit = fa6dc010a20b6eb175d92d05651972651278e06f
-	parent = 70c8df97daf6e1f6891c26a4c3289a3faae3aa93
+	commit = a2fb086d07b7dbd9c4a59fe57646bd465841edd5
+	parent = c38153f3178e49eede475b41470bdf3bbd48ba19
 	cmdver = 0.3.0

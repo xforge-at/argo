@@ -8,27 +8,27 @@
 
 import Foundation
 
-public class HTTPRequestor: NSObject, XFHttpRequestor {
+open class HTTPRequestor: NSObject, XFHttpRequestor {
 
-	public func executeRequest(request: XFRequest, callback: XFHttpRequestorCallback) {
-		let urlRequest = NSMutableURLRequest(URL: NSURL(string: request.url)!)
-		let session = NSURLSession.sharedSession()
-		urlRequest.HTTPMethod = request.method
-		urlRequest.HTTPBody = request.body
+	open func execute(_ request: XFRequest, callback: XFHttpRequestorCallback) {
+		var urlRequest = URLRequest(url: URL(string: request.url)!)
+		let session = URLSession.shared
+		urlRequest.httpMethod = request.method
+		urlRequest.httpBody = request.body
 
 		if let header = request.header {
 			for (k, v) in header {
 				urlRequest.addValue(v, forHTTPHeaderField: k)
 			}
 		}
-
-		session.dataTaskWithRequest(urlRequest, completionHandler: { data, response, error -> Void in
+        
+		session.dataTask(with: urlRequest, completionHandler: { data, response, error -> Void in
 			if let error = error {
 				let e = XFError.init(code: 0, message: error.localizedDescription)
 				callback.receiveError(e)
-			} else if let httpResponse = response as? NSHTTPURLResponse {
+			} else if let httpResponse = response as? HTTPURLResponse {
 				let response = XFResponse.init(request: request, statusCode: Int32(httpResponse.statusCode), header: httpResponse.allHeaderFields as! [String: String], body: data)
-				callback.receiveResponse(response)
+				callback.receive(response)
 			} else {
 				let e = XFError.init(code: 0, message: "Something went wrong")
 				callback.receiveError(e)

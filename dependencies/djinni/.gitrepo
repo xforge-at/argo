@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:dropbox/djinni.git
 	branch = master
-	commit = d7877cacf3441084073bcdf54b489769eef7c852
-	parent = 187ba476b824177e3c88a29937de375c6301963b
+	commit = 74676e998e962bf208a1ffd7366eba8a1ef544e1
+	parent = 6fdf4be7e6505a6c6b0ac20219f6944422d4f929
 	cmdver = 0.3.0

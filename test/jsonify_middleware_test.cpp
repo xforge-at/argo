@@ -1,6 +1,6 @@
 #import "json_component.hpp"
-#import "stringify_middleware.hpp"
 #import "jsonify_middleware.hpp"
+#import "stringify_middleware.hpp"
 #import "util.hpp"
 #import <gmock/gmock.h>
 #import <gtest/gtest.h>
@@ -8,11 +8,8 @@
 TEST(JsonifyMiddlewareTest, ComponentIsSaved) {
     Request req{"GET", "www.test.at", nullopt, nullopt};
 
-    Json jsonObj = Json::object {
-        { "key1", "value1" },
-        { "key2", false },
-        { "key3", Json::array { 1, 2, 3 } },
-        { "key4", 996.8 },
+    Json jsonObj = Json::object{
+        {"key1", "value1"}, {"key2", false}, {"key3", Json::array{1, 2, 3}}, {"key4", 996.8},
     };
     string tempString = jsonObj.dump();
     std::vector<uint8_t> body{tempString.begin(), tempString.end()};
@@ -29,7 +26,7 @@ TEST(JsonifyMiddlewareTest, ComponentIsSaved) {
     MiddlewareResponse mrj = jm.handle_response(newRes);
     const Response *responseJM = mrj.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(responseJM);
-    
+
     optional<Json> newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
     ASSERT_EQ(jsonObj, *newJsonObj);
 }
@@ -54,6 +51,24 @@ TEST(JsonifyMiddlewareTest, InvalidJson) {
     ASSERT_TRUE(error);
 }
 
+TEST(JsonifyMiddlewareTest, AcceptEncodingIsAddedForRequest) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+
+    req.add_header("accept", "application/xml");
+
+    JsonifyMiddleware jm;
+    let handled_request = jm.handle_request(req);
+    let hr = handled_request.match([](const Request &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_NE(hr, nullptr);
+    ASSERT_NE(hr->header, nullopt);
+
+    let accept_header_value = hr->get_header("Accept");
+
+    ASSERT_TRUE(accept_header_value);
+    // TODO: there are better assert macros for string equality
+    ASSERT_STRCASEEQ(accept_header_value->c_str(), "application/xml,application/json");
+}
+
 TEST(JsonifyMiddlewareTest, NoComponent) {
     Request req{"GET", "www.test.at", nullopt, nullopt};
     Response res{req, 200, unordered_map<string, string>(), nullopt};
@@ -69,7 +84,27 @@ TEST(JsonifyMiddlewareTest, NoComponent) {
     MiddlewareResponse mrj = jm.handle_response(newRes);
     const Response *responseJM = mrj.match([](const Response &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
     ASSERT_TRUE(responseJM);
-    
+
     optional<Json> newJsonObj = responseJM->get_component<JsonComponent>("bodyJson");
     ASSERT_FALSE(newJsonObj);
+}
+
+TEST(JsonifyMiddlewareTest, SetsJsonBodyForRequest) {
+    Request req{"GET", "www.test.at", nullopt, nullopt};
+
+    Json jsonObj = Json::object{
+        {"key1", "value1"}, {"key2", false}, {"key3", Json::array{1, 2, 3}}, {"key4", 996.8},
+    };
+
+    let comp = make_shared<JsonComponent>(jsonObj);
+    req.components.insert({"bodyJson", comp});
+
+    JsonifyMiddleware sm;
+    MiddlewareRequest mrs = sm.handle_request(req);
+
+    const Request *requestJM = mrs.match([](const Request &r) { return &r; }, [](ftl::otherwise) { return nullptr; });
+    ASSERT_TRUE(requestJM);
+    let v = *(requestJM->body);
+    string bodyString{v.begin(), v.end()};
+    ASSERT_EQ(jsonObj.dump(), bodyString);
 }

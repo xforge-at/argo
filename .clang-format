@@ -26,9 +26,9 @@ BinPackParameters: false
 # Always put braces on the same line (like they should)
 BreakBeforeBraces: Attach
 
-# Use at most 200 characters per line, use up to 100 tabs and 1 tab = 4 spaces
-ColumnLimit: 200
-TabWidth: 100
+# Use at most 120 characters per line, 1 tab = 4 spaces
+ColumnLimit: 120
+TabWidth: 4
 IndentWidth: 4
 
 # Indent public/private etc. by 2 spaces 
