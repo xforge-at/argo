@@ -9,6 +9,7 @@
 # All warnings + warnings are errors
 	'-Weverything',
 	'-Werror',
+  '-Wno-float-equal',
 # Turn off useless errors 
 	'-Wno-pedantic',
 # Don't warn for gnu language extensions
