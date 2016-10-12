@@ -2,45 +2,51 @@
   'target_defaults': {
     'default_configuration': 'Debug',
     'cflags': [
-# Dunno what that is, but it's good shit
-	'-fvisibility=hidden',
+      # Dunno what that is, but it's good shit
+      '-fvisibility=hidden',
     ],
     'error_flags': [
-# All warnings + warnings are errors
-	'-Weverything',
-	'-Werror',
-  '-Wno-float-equal',
-# Turn off useless errors 
-	'-Wno-pedantic',
-# Don't warn for gnu language extensions
-	'-Wno-gnu',
-# Don't warn about C++98 compatibility
-	'-Wno-c++98-compat',
-	'-Wno-c++98-compat-pedantic',
-# Don't warn about vtable duplication warnings
-	'-Wno-weak-vtables',
-# Don't warn about (type)var style casts
-	'-Wno-old-style-cast',
-# Don't warn about paddings
-        '-Wno-padded',
+      # All warnings + warnings are errors
+      '-Weverything',
+      '-Werror',
+      # Don't warn about = and <> comparisons of real numbers. 
+      '-Wno-float-equal',
+      # Turn off useless errors 
+      '-Wno-pedantic',
+      # Don't warn for gnu language extensions
+      '-Wno-gnu',
+      # Don't warn about C++98 compatibility
+      '-Wno-c++98-compat',
+      '-Wno-c++98-compat-pedantic',
+      # Don't warn about vtable duplication warnings
+      '-Wno-weak-vtables',
+      # Don't warn about (type)var style casts
+      '-Wno-old-style-cast',
+      # Don't warn about paddings
+      '-Wno-padded',
     ],
     'error_flags_ios': [
-        '<@(_error_flags)',
-# Turn off objc specific errors
-	'-Wno-objc-missing-property-synthesis',
-	'-Wno-direct-ivar-access',
-# Turn of notes about module builds
-	'-Rno-module-build' ,
+      '<@(_error_flags)',
+      # Turn off objc specific errors
+      '-Wno-objc-missing-property-synthesis',
+      '-Wno-direct-ivar-access',
+      # Turn of notes about module builds
+      '-Rno-module-build',
     ],
-    'cflags_cc': [ '>@(_cflags)', '-std=c++14', '-fexceptions', '-frtti' ],
+    'cflags_cc': [ 
+      '>@(_cflags)', 
+      '-std=c++14', 
+      '-fexceptions', 
+      '-frtti',
+    ],
     'conditions' : [
       ['OS=="android"',
         {
-# The compiler on android produces a lot more unecessary error messages, especially in the libraries
-#          'cflags!' : [ '-Werror', '-Weverything' ],
-#          'cflags_cc!' : [ '-Werror', '-Weverything' ],
-#          'cflags+' : [ '-Wno-reserved-id-macro', '-fblocks'],
-#          'cflags_cc+' : [ '-fblocks' ],
+        # The compiler on android produces a lot more unecessary error messages, especially in the libraries
+        #          'cflags!' : [ '-Werror', '-Weverything' ],
+        #          'cflags_cc!' : [ '-Werror', '-Weverything' ],
+        #          'cflags+' : [ '-Wno-reserved-id-macro', '-fblocks'],
+        #          'cflags_cc+' : [ '-fblocks' ],
         },
       ],
       ['OS=="ios"',
