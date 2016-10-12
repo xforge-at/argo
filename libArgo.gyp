@@ -28,8 +28,7 @@
 		],
 		'all_dependent_settings' : {
 		    'include_dirs' : [ 
-			'src', 
-			'src/generated/'
+			'src/**',
 		    ],
 		},
 		'include_dirs': [
